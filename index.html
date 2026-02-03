@@ -3805,7 +3805,7 @@
                 
                 <div class="page-content" id="page-settings">
                     <div class="page-description">
-                        <p>Configure your dashboard, set metric targets and thresholds, manage integrations, and customize alert preferences to match your organization's standards.</p>
+                        <p>Full control center for your engineering dashboard. Configure metrics, alerts, integrations, team management, and reporting to match your organization's needs.</p>
                     </div>
 
                     <!-- Settings Navigation Tabs -->
@@ -3840,12 +3840,36 @@
                             </svg>
                             Teams
                         </button>
+                        <button class="settings-tab" data-settings-tab="reports">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                            Reports
+                        </button>
+                        <button class="settings-tab" data-settings-tab="goals">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            Goals & OKRs
+                        </button>
                         <button class="settings-tab" data-settings-tab="notifications">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                                 <polyline points="22,6 12,13 2,6"/>
                             </svg>
                             Notifications
+                        </button>
+                        <button class="settings-tab" data-settings-tab="display">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                            Display
                         </button>
                         <button class="settings-tab" data-settings-tab="data">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -4098,6 +4122,208 @@
                             </div>
                         </div>
 
+                        <!-- Team-Specific Overrides -->
+                        <div class="settings-section">
+                            <div class="settings-section-header">
+                                <div>
+                                    <h2>Team-Specific Target Overrides</h2>
+                                    <p>Set different targets for specific teams based on their maturity, tech stack, or business context.</p>
+                                </div>
+                                <button class="btn-primary btn-sm">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                                    </svg>
+                                    Add Override
+                                </button>
+                            </div>
+
+                            <div class="team-overrides-list">
+                                <div class="team-override-card">
+                                    <div class="override-header">
+                                        <div class="override-team">
+                                            <div class="team-avatar" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">P</div>
+                                            <div>
+                                                <h4>Platform Team</h4>
+                                                <span class="override-reason">High deployment frequency expected</span>
+                                            </div>
+                                        </div>
+                                        <div class="override-actions">
+                                            <button class="btn-icon-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                            <button class="btn-icon-sm danger"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></button>
+                                        </div>
+                                    </div>
+                                    <div class="override-metrics">
+                                        <div class="override-metric">
+                                            <span class="override-metric-label">Deployment Freq</span>
+                                            <span class="override-metric-value">5+/day</span>
+                                            <span class="override-metric-diff positive">+2 vs org</span>
+                                        </div>
+                                        <div class="override-metric">
+                                            <span class="override-metric-label">Lead Time</span>
+                                            <span class="override-metric-value">&lt;30 min</span>
+                                            <span class="override-metric-diff positive">-30m vs org</span>
+                                        </div>
+                                        <div class="override-metric">
+                                            <span class="override-metric-label">CFR Target</span>
+                                            <span class="override-metric-value">&lt;5%</span>
+                                            <span class="override-metric-diff positive">-10% vs org</span>
+                                        </div>
+                                        <div class="override-metric">
+                                            <span class="override-metric-label">MTTR</span>
+                                            <span class="override-metric-value">&lt;15 min</span>
+                                            <span class="override-metric-diff positive">-45m vs org</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="team-override-card">
+                                    <div class="override-header">
+                                        <div class="override-team">
+                                            <div class="team-avatar" style="background: linear-gradient(135deg, #ec4899, #db2777);">M</div>
+                                            <div>
+                                                <h4>Mobile Team</h4>
+                                                <span class="override-reason">App store release cycles</span>
+                                            </div>
+                                        </div>
+                                        <div class="override-actions">
+                                            <button class="btn-icon-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                            <button class="btn-icon-sm danger"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></button>
+                                        </div>
+                                    </div>
+                                    <div class="override-metrics">
+                                        <div class="override-metric">
+                                            <span class="override-metric-label">Deployment Freq</span>
+                                            <span class="override-metric-value">2/week</span>
+                                            <span class="override-metric-diff negative">-5/day vs org</span>
+                                        </div>
+                                        <div class="override-metric">
+                                            <span class="override-metric-label">Lead Time</span>
+                                            <span class="override-metric-value">&lt;3 days</span>
+                                            <span class="override-metric-diff negative">+2d vs org</span>
+                                        </div>
+                                        <div class="override-metric">
+                                            <span class="override-metric-label">CFR Target</span>
+                                            <span class="override-metric-value">&lt;10%</span>
+                                            <span class="override-metric-diff positive">-5% vs org</span>
+                                        </div>
+                                        <div class="override-metric">
+                                            <span class="override-metric-label">MTTR</span>
+                                            <span class="override-metric-value">&lt;4 hrs</span>
+                                            <span class="override-metric-diff">Hotfix path</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Metric Calculation Settings -->
+                        <div class="settings-section">
+                            <div class="settings-section-header">
+                                <div>
+                                    <h2>Metric Calculation Settings</h2>
+                                    <p>Fine-tune how metrics are calculated and what data to include.</p>
+                                </div>
+                            </div>
+
+                            <div class="calc-settings-grid">
+                                <div class="calc-setting-card">
+                                    <h4>Deployment Counting</h4>
+                                    <div class="calc-options">
+                                        <label class="calc-option">
+                                            <input type="radio" name="deploy-count" checked>
+                                            <span>Count all deployments to production</span>
+                                        </label>
+                                        <label class="calc-option">
+                                            <input type="radio" name="deploy-count">
+                                            <span>Only count successful deployments</span>
+                                        </label>
+                                        <label class="calc-option">
+                                            <input type="radio" name="deploy-count">
+                                            <span>Exclude rollbacks from count</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="calc-setting-card">
+                                    <h4>Lead Time Measurement</h4>
+                                    <div class="calc-options">
+                                        <label class="calc-option">
+                                            <input type="radio" name="lead-time" checked>
+                                            <span>From first commit to production</span>
+                                        </label>
+                                        <label class="calc-option">
+                                            <input type="radio" name="lead-time">
+                                            <span>From PR creation to production</span>
+                                        </label>
+                                        <label class="calc-option">
+                                            <input type="radio" name="lead-time">
+                                            <span>From PR merge to production</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="calc-setting-card">
+                                    <h4>Working Hours</h4>
+                                    <div class="calc-options">
+                                        <label class="calc-option">
+                                            <input type="checkbox" checked>
+                                            <span>Calculate lead time using business hours only</span>
+                                        </label>
+                                        <div class="working-hours-config">
+                                            <div class="hours-row">
+                                                <label>Work starts:</label>
+                                                <select class="time-select">
+                                                    <option>8:00 AM</option>
+                                                    <option selected>9:00 AM</option>
+                                                    <option>10:00 AM</option>
+                                                </select>
+                                            </div>
+                                            <div class="hours-row">
+                                                <label>Work ends:</label>
+                                                <select class="time-select">
+                                                    <option>5:00 PM</option>
+                                                    <option selected>6:00 PM</option>
+                                                    <option>7:00 PM</option>
+                                                </select>
+                                            </div>
+                                            <div class="hours-row">
+                                                <label>Timezone:</label>
+                                                <select class="time-select">
+                                                    <option>UTC</option>
+                                                    <option selected>America/New_York</option>
+                                                    <option>America/Los_Angeles</option>
+                                                    <option>Europe/London</option>
+                                                    <option>Asia/Kolkata</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="calc-setting-card">
+                                    <h4>Change Failure Definition</h4>
+                                    <div class="calc-options">
+                                        <label class="calc-option">
+                                            <input type="checkbox" checked>
+                                            <span>Hotfixes within 24 hours</span>
+                                        </label>
+                                        <label class="calc-option">
+                                            <input type="checkbox" checked>
+                                            <span>Rollbacks</span>
+                                        </label>
+                                        <label class="calc-option">
+                                            <input type="checkbox">
+                                            <span>Bug fixes marked as "critical"</span>
+                                        </label>
+                                        <label class="calc-option">
+                                            <input type="checkbox">
+                                            <span>Incidents triggered by deployment</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="settings-actions">
                             <button class="btn-primary">Save All Targets</button>
                             <button class="btn-secondary">Cancel</button>
@@ -4222,6 +4448,246 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="alert-config-card">
+                                    <div class="alert-config-header">
+                                        <h3>Deployment Frequency Drop</h3>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="alert-config-body">
+                                        <div class="alert-threshold">
+                                            <label>Warning When:</label>
+                                            <div class="threshold-input-group">
+                                                <span>Drops by</span>
+                                                <input type="number" value="30" class="threshold-input">
+                                                <span>% vs avg</span>
+                                            </div>
+                                        </div>
+                                        <div class="alert-threshold">
+                                            <label>Critical When:</label>
+                                            <div class="threshold-input-group">
+                                                <span>No deploys for</span>
+                                                <input type="number" value="3" class="threshold-input">
+                                                <span>days</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="alert-config-card">
+                                    <div class="alert-config-header">
+                                        <h3>Technical Debt Accumulation</h3>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="alert-config-body">
+                                        <div class="alert-threshold">
+                                            <label>Warning When:</label>
+                                            <div class="threshold-input-group">
+                                                <span>Tech debt tasks exceed</span>
+                                                <input type="number" value="20" class="threshold-input">
+                                                <span>% of backlog</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="alert-config-card">
+                                    <div class="alert-config-header">
+                                        <h3>Team Velocity Decline</h3>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="alert-config-body">
+                                        <div class="alert-threshold">
+                                            <label>Alert When:</label>
+                                            <div class="threshold-input-group">
+                                                <span>Velocity drops</span>
+                                                <input type="number" value="25" class="threshold-input">
+                                                <span>% over 2 sprints</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Escalation Rules -->
+                        <div class="settings-section">
+                            <div class="settings-section-header">
+                                <div>
+                                    <h2>Escalation Rules</h2>
+                                    <p>Define how alerts escalate if not acknowledged.</p>
+                                </div>
+                                <button class="btn-primary btn-sm">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                                    </svg>
+                                    Add Rule
+                                </button>
+                            </div>
+
+                            <div class="escalation-rules-list">
+                                <div class="escalation-rule">
+                                    <div class="escalation-step">
+                                        <span class="step-number">1</span>
+                                        <div class="step-content">
+                                            <div class="step-header">
+                                                <span class="step-timing">Immediately</span>
+                                                <span class="step-action">Notify via</span>
+                                            </div>
+                                            <div class="step-recipients">
+                                                <span class="recipient-badge slack">Slack #eng-alerts</span>
+                                                <span class="recipient-badge email">Team Lead Email</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="escalation-connector">
+                                        <svg width="16" height="24" viewBox="0 0 16 24"><path d="M8 0v24M8 24l-4-4M8 24l4-4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                    </div>
+                                    <div class="escalation-step">
+                                        <span class="step-number">2</span>
+                                        <div class="step-content">
+                                            <div class="step-header">
+                                                <span class="step-timing">After 30 minutes</span>
+                                                <span class="step-action">If not acknowledged</span>
+                                            </div>
+                                            <div class="step-recipients">
+                                                <span class="recipient-badge phone">SMS to Team Lead</span>
+                                                <span class="recipient-badge slack">Slack DM to EM</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="escalation-connector">
+                                        <svg width="16" height="24" viewBox="0 0 16 24"><path d="M8 0v24M8 24l-4-4M8 24l4-4" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                                    </div>
+                                    <div class="escalation-step">
+                                        <span class="step-number">3</span>
+                                        <div class="step-content">
+                                            <div class="step-header">
+                                                <span class="step-timing">After 1 hour</span>
+                                                <span class="step-action">If still unresolved</span>
+                                            </div>
+                                            <div class="step-recipients">
+                                                <span class="recipient-badge phone">Call Engineering Manager</span>
+                                                <span class="recipient-badge email">Email VP Engineering</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quiet Hours & Maintenance Windows -->
+                        <div class="settings-section">
+                            <div class="settings-section-header">
+                                <div>
+                                    <h2>Quiet Hours & Maintenance Windows</h2>
+                                    <p>Suppress non-critical alerts during specific times.</p>
+                                </div>
+                            </div>
+
+                            <div class="quiet-hours-grid">
+                                <div class="quiet-hours-card">
+                                    <h4>Regular Quiet Hours</h4>
+                                    <div class="quiet-config">
+                                        <label class="calc-option">
+                                            <input type="checkbox" checked>
+                                            <span>Enable quiet hours</span>
+                                        </label>
+                                        <div class="quiet-times">
+                                            <div class="time-range">
+                                                <label>Weekdays:</label>
+                                                <select class="time-select"><option>8:00 PM</option><option selected>10:00 PM</option></select>
+                                                <span>to</span>
+                                                <select class="time-select"><option>6:00 AM</option><option selected>8:00 AM</option></select>
+                                            </div>
+                                            <div class="time-range">
+                                                <label>Weekends:</label>
+                                                <select class="time-select"><option>All day</option><option selected>6:00 PM Fri</option></select>
+                                                <span>to</span>
+                                                <select class="time-select"><option>8:00 AM Mon</option><option selected>9:00 AM Mon</option></select>
+                                            </div>
+                                        </div>
+                                        <div class="quiet-exception">
+                                            <label class="calc-option">
+                                                <input type="checkbox" checked>
+                                                <span>Always allow critical alerts (CFR > 20%, MTTR incidents)</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="quiet-hours-card">
+                                    <h4>Scheduled Maintenance Windows</h4>
+                                    <div class="maintenance-windows">
+                                        <div class="maintenance-item">
+                                            <div class="maintenance-info">
+                                                <span class="maintenance-name">Weekly Deploy Freeze</span>
+                                                <span class="maintenance-time">Fridays 4PM - Mondays 9AM</span>
+                                            </div>
+                                            <span class="maintenance-status active">Active</span>
+                                        </div>
+                                        <div class="maintenance-item">
+                                            <div class="maintenance-info">
+                                                <span class="maintenance-name">Database Migration Window</span>
+                                                <span class="maintenance-time">Feb 15, 2AM - 6AM</span>
+                                            </div>
+                                            <span class="maintenance-status scheduled">Scheduled</span>
+                                        </div>
+                                        <button class="btn-sm-secondary">+ Add Window</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alert Grouping -->
+                        <div class="settings-section">
+                            <div class="settings-section-header">
+                                <div>
+                                    <h2>Alert Grouping & Deduplication</h2>
+                                    <p>Reduce noise by grouping related alerts.</p>
+                                </div>
+                            </div>
+
+                            <div class="grouping-options">
+                                <div class="notification-option">
+                                    <div class="option-info">
+                                        <span class="option-label">Group alerts by team</span>
+                                        <span class="option-desc">Consolidate multiple alerts from the same team into one notification</span>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="notification-option">
+                                    <div class="option-info">
+                                        <span class="option-label">Deduplicate similar alerts</span>
+                                        <span class="option-desc">Suppress repeated alerts within a 15-minute window</span>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="notification-option">
+                                    <div class="option-info">
+                                        <span class="option-label">Daily digest for info alerts</span>
+                                        <span class="option-desc">Bundle low-priority alerts into a daily summary</span>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox">
+                                        <span class="toggle-slider"></span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -4524,6 +4990,515 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== REPORTS TAB ==================== -->
+                    <div class="settings-content" id="settings-reports">
+                        <div class="settings-section">
+                            <div class="settings-section-header">
+                                <div>
+                                    <h2>Scheduled Reports</h2>
+                                    <p>Configure automated reports delivered to your team.</p>
+                                </div>
+                                <button class="btn-primary btn-sm">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                                    </svg>
+                                    Create Report
+                                </button>
+                            </div>
+
+                            <div class="reports-list">
+                                <div class="report-card">
+                                    <div class="report-header">
+                                        <div class="report-info">
+                                            <h4>Weekly Engineering Summary</h4>
+                                            <span class="report-schedule">Every Monday at 9:00 AM</span>
+                                        </div>
+                                        <div class="report-status active">Active</div>
+                                    </div>
+                                    <div class="report-content-preview">
+                                        <span class="report-metric">DORA Metrics</span>
+                                        <span class="report-metric">Team Velocity</span>
+                                        <span class="report-metric">PR Throughput</span>
+                                        <span class="report-metric">Blockers</span>
+                                    </div>
+                                    <div class="report-recipients">
+                                        <span class="recipient-label">Recipients:</span>
+                                        <span class="recipient-tag">engineering@company.com</span>
+                                        <span class="recipient-tag">+3 others</span>
+                                    </div>
+                                    <div class="report-actions">
+                                        <button class="btn-sm-secondary">Edit</button>
+                                        <button class="btn-sm-secondary">Preview</button>
+                                        <button class="btn-sm-secondary">Send Now</button>
+                                    </div>
+                                </div>
+
+                                <div class="report-card">
+                                    <div class="report-header">
+                                        <div class="report-info">
+                                            <h4>Monthly Executive Dashboard</h4>
+                                            <span class="report-schedule">1st of each month at 8:00 AM</span>
+                                        </div>
+                                        <div class="report-status active">Active</div>
+                                    </div>
+                                    <div class="report-content-preview">
+                                        <span class="report-metric">DORA Trends</span>
+                                        <span class="report-metric">Goal Progress</span>
+                                        <span class="report-metric">Team Health</span>
+                                        <span class="report-metric">Comparisons</span>
+                                    </div>
+                                    <div class="report-recipients">
+                                        <span class="recipient-label">Recipients:</span>
+                                        <span class="recipient-tag">vp-engineering@company.com</span>
+                                        <span class="recipient-tag">cto@company.com</span>
+                                    </div>
+                                    <div class="report-actions">
+                                        <button class="btn-sm-secondary">Edit</button>
+                                        <button class="btn-sm-secondary">Preview</button>
+                                        <button class="btn-sm-secondary">Send Now</button>
+                                    </div>
+                                </div>
+
+                                <div class="report-card">
+                                    <div class="report-header">
+                                        <div class="report-info">
+                                            <h4>Daily Standup Prep</h4>
+                                            <span class="report-schedule">Weekdays at 8:45 AM</span>
+                                        </div>
+                                        <div class="report-status paused">Paused</div>
+                                    </div>
+                                    <div class="report-content-preview">
+                                        <span class="report-metric">Yesterday's Deploys</span>
+                                        <span class="report-metric">Open PRs</span>
+                                        <span class="report-metric">Blockers</span>
+                                    </div>
+                                    <div class="report-recipients">
+                                        <span class="recipient-label">Recipients:</span>
+                                        <span class="recipient-tag">#daily-standup (Slack)</span>
+                                    </div>
+                                    <div class="report-actions">
+                                        <button class="btn-sm-primary">Resume</button>
+                                        <button class="btn-sm-secondary">Edit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <div class="settings-section-header">
+                                <div>
+                                    <h2>Report Templates</h2>
+                                    <p>Customize what data appears in each report type.</p>
+                                </div>
+                            </div>
+
+                            <div class="templates-grid">
+                                <div class="template-card">
+                                    <h4>Engineering Summary</h4>
+                                    <div class="template-sections">
+                                        <label class="template-option"><input type="checkbox" checked><span>DORA Metrics Overview</span></label>
+                                        <label class="template-option"><input type="checkbox" checked><span>Team-by-Team Breakdown</span></label>
+                                        <label class="template-option"><input type="checkbox" checked><span>Deployment Activity</span></label>
+                                        <label class="template-option"><input type="checkbox" checked><span>PR Metrics</span></label>
+                                        <label class="template-option"><input type="checkbox"><span>Individual Contributions</span></label>
+                                        <label class="template-option"><input type="checkbox" checked><span>Alerts & Blockers</span></label>
+                                        <label class="template-option"><input type="checkbox"><span>Code Quality Trends</span></label>
+                                    </div>
+                                </div>
+
+                                <div class="template-card">
+                                    <h4>Executive Summary</h4>
+                                    <div class="template-sections">
+                                        <label class="template-option"><input type="checkbox" checked><span>High-Level KPIs</span></label>
+                                        <label class="template-option"><input type="checkbox" checked><span>Goal Progress</span></label>
+                                        <label class="template-option"><input type="checkbox" checked><span>Month-over-Month Trends</span></label>
+                                        <label class="template-option"><input type="checkbox" checked><span>Risk Summary</span></label>
+                                        <label class="template-option"><input type="checkbox"><span>Detailed Metrics</span></label>
+                                        <label class="template-option"><input type="checkbox" checked><span>Recommendations</span></label>
+                                    </div>
+                                </div>
+
+                                <div class="template-card">
+                                    <h4>Export Format</h4>
+                                    <div class="template-sections">
+                                        <label class="template-option"><input type="radio" name="format" checked><span>PDF Report</span></label>
+                                        <label class="template-option"><input type="radio" name="format"><span>HTML Email</span></label>
+                                        <label class="template-option"><input type="radio" name="format"><span>CSV Data Export</span></label>
+                                        <label class="template-option"><input type="radio" name="format"><span>JSON API Response</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-actions">
+                            <button class="btn-primary">Save Report Settings</button>
+                            <button class="btn-secondary">Cancel</button>
+                        </div>
+                    </div>
+
+                    <!-- ==================== GOALS & OKRs TAB ==================== -->
+                    <div class="settings-content" id="settings-goals">
+                        <div class="settings-section">
+                            <div class="settings-section-header">
+                                <div>
+                                    <h2>Engineering Goals & OKRs</h2>
+                                    <p>Define quarterly objectives and track progress against engineering metrics.</p>
+                                </div>
+                                <button class="btn-primary btn-sm">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                                    </svg>
+                                    Add Goal
+                                </button>
+                            </div>
+
+                            <div class="goals-period-selector">
+                                <button class="period-btn">Q4 2025</button>
+                                <button class="period-btn active">Q1 2026</button>
+                                <button class="period-btn">Q2 2026</button>
+                            </div>
+
+                            <div class="okr-list">
+                                <div class="okr-card">
+                                    <div class="okr-header">
+                                        <div class="okr-objective">
+                                            <span class="okr-icon">🎯</span>
+                                            <div>
+                                                <h4>Achieve Elite DORA Performance</h4>
+                                                <span class="okr-owner">Owner: Engineering Org</span>
+                                            </div>
+                                        </div>
+                                        <div class="okr-progress">
+                                            <span class="progress-value">67%</span>
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 67%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="key-results">
+                                        <div class="key-result">
+                                            <div class="kr-info">
+                                                <span class="kr-status on-track">●</span>
+                                                <span class="kr-text">Increase deployment frequency to 5+/day org-wide</span>
+                                            </div>
+                                            <div class="kr-metric">
+                                                <span class="kr-current">4.2/day</span>
+                                                <span class="kr-target">→ 5/day</span>
+                                            </div>
+                                        </div>
+                                        <div class="key-result">
+                                            <div class="kr-info">
+                                                <span class="kr-status on-track">●</span>
+                                                <span class="kr-text">Reduce lead time to under 2 hours</span>
+                                            </div>
+                                            <div class="kr-metric">
+                                                <span class="kr-current">2.4 hrs</span>
+                                                <span class="kr-target">→ 2 hrs</span>
+                                            </div>
+                                        </div>
+                                        <div class="key-result">
+                                            <div class="kr-info">
+                                                <span class="kr-status at-risk">●</span>
+                                                <span class="kr-text">Maintain CFR below 10%</span>
+                                            </div>
+                                            <div class="kr-metric">
+                                                <span class="kr-current">12.3%</span>
+                                                <span class="kr-target">→ 10%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="okr-actions">
+                                        <button class="btn-sm-secondary">Edit</button>
+                                        <button class="btn-sm-secondary">View Details</button>
+                                    </div>
+                                </div>
+
+                                <div class="okr-card">
+                                    <div class="okr-header">
+                                        <div class="okr-objective">
+                                            <span class="okr-icon">💪</span>
+                                            <div>
+                                                <h4>Improve Developer Experience</h4>
+                                                <span class="okr-owner">Owner: Platform Team</span>
+                                            </div>
+                                        </div>
+                                        <div class="okr-progress">
+                                            <span class="progress-value">45%</span>
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 45%"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="key-results">
+                                        <div class="key-result">
+                                            <div class="kr-info">
+                                                <span class="kr-status on-track">●</span>
+                                                <span class="kr-text">Increase developer satisfaction to 8.5/10</span>
+                                            </div>
+                                            <div class="kr-metric">
+                                                <span class="kr-current">7.8/10</span>
+                                                <span class="kr-target">→ 8.5/10</span>
+                                            </div>
+                                        </div>
+                                        <div class="key-result">
+                                            <div class="kr-info">
+                                                <span class="kr-status behind">●</span>
+                                                <span class="kr-text">Reduce context switching by 30%</span>
+                                            </div>
+                                            <div class="kr-metric">
+                                                <span class="kr-current">-12%</span>
+                                                <span class="kr-target">→ -30%</span>
+                                            </div>
+                                        </div>
+                                        <div class="key-result">
+                                            <div class="kr-info">
+                                                <span class="kr-status on-track">●</span>
+                                                <span class="kr-text">Achieve 70% focus time</span>
+                                            </div>
+                                            <div class="kr-metric">
+                                                <span class="kr-current">62%</span>
+                                                <span class="kr-target">→ 70%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="okr-actions">
+                                        <button class="btn-sm-secondary">Edit</button>
+                                        <button class="btn-sm-secondary">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <div class="settings-section-header">
+                                <div>
+                                    <h2>Goal Tracking Settings</h2>
+                                    <p>Configure how goals are tracked and reported.</p>
+                                </div>
+                            </div>
+
+                            <div class="goal-settings-grid">
+                                <div class="notification-option">
+                                    <div class="option-info">
+                                        <span class="option-label">Auto-update progress from metrics</span>
+                                        <span class="option-desc">Automatically calculate goal progress from linked metrics</span>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="notification-option">
+                                    <div class="option-info">
+                                        <span class="option-label">Weekly goal check-in reminders</span>
+                                        <span class="option-desc">Send reminders to update qualitative key results</span>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="notification-option">
+                                    <div class="option-info">
+                                        <span class="option-label">Alert when goals are at risk</span>
+                                        <span class="option-desc">Notify when goal progress falls behind target pace</span>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-actions">
+                            <button class="btn-primary">Save Goals</button>
+                            <button class="btn-secondary">Cancel</button>
+                        </div>
+                    </div>
+
+                    <!-- ==================== DISPLAY TAB ==================== -->
+                    <div class="settings-content" id="settings-display">
+                        <div class="settings-section">
+                            <div class="settings-section-header">
+                                <div>
+                                    <h2>Dashboard Display Settings</h2>
+                                    <p>Customize how the dashboard looks and behaves.</p>
+                                </div>
+                            </div>
+
+                            <div class="display-settings-grid">
+                                <div class="display-setting-card">
+                                    <h4>Default Time Range</h4>
+                                    <div class="time-range-options">
+                                        <label class="calc-option"><input type="radio" name="timerange"><span>Last 7 days</span></label>
+                                        <label class="calc-option"><input type="radio" name="timerange" checked><span>Last 30 days</span></label>
+                                        <label class="calc-option"><input type="radio" name="timerange"><span>Last 90 days</span></label>
+                                        <label class="calc-option"><input type="radio" name="timerange"><span>Current quarter</span></label>
+                                    </div>
+                                </div>
+
+                                <div class="display-setting-card">
+                                    <h4>Default Landing Page</h4>
+                                    <div class="time-range-options">
+                                        <label class="calc-option"><input type="radio" name="landing" checked><span>Cockpit (Overview)</span></label>
+                                        <label class="calc-option"><input type="radio" name="landing"><span>Investment</span></label>
+                                        <label class="calc-option"><input type="radio" name="landing"><span>Alerts</span></label>
+                                        <label class="calc-option"><input type="radio" name="landing"><span>Team Performance</span></label>
+                                    </div>
+                                </div>
+
+                                <div class="display-setting-card">
+                                    <h4>Chart Preferences</h4>
+                                    <div class="chart-prefs">
+                                        <div class="notification-option">
+                                            <div class="option-info">
+                                                <span class="option-label">Show trend lines</span>
+                                            </div>
+                                            <label class="toggle-switch">
+                                                <input type="checkbox" checked>
+                                                <span class="toggle-slider"></span>
+                                            </label>
+                                        </div>
+                                        <div class="notification-option">
+                                            <div class="option-info">
+                                                <span class="option-label">Show benchmark comparison</span>
+                                            </div>
+                                            <label class="toggle-switch">
+                                                <input type="checkbox" checked>
+                                                <span class="toggle-slider"></span>
+                                            </label>
+                                        </div>
+                                        <div class="notification-option">
+                                            <div class="option-info">
+                                                <span class="option-label">Animate chart transitions</span>
+                                            </div>
+                                            <label class="toggle-switch">
+                                                <input type="checkbox" checked>
+                                                <span class="toggle-slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="display-setting-card">
+                                    <h4>Number Formatting</h4>
+                                    <div class="format-options">
+                                        <div class="format-row">
+                                            <label>Decimal places:</label>
+                                            <select class="format-select">
+                                                <option>0</option>
+                                                <option selected>1</option>
+                                                <option>2</option>
+                                            </select>
+                                        </div>
+                                        <div class="format-row">
+                                            <label>Percentage format:</label>
+                                            <select class="format-select">
+                                                <option selected>12.5%</option>
+                                                <option>12.5 %</option>
+                                                <option>0.125</option>
+                                            </select>
+                                        </div>
+                                        <div class="format-row">
+                                            <label>Date format:</label>
+                                            <select class="format-select">
+                                                <option>MM/DD/YYYY</option>
+                                                <option selected>DD/MM/YYYY</option>
+                                                <option>YYYY-MM-DD</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <div class="settings-section-header">
+                                <div>
+                                    <h2>Cockpit Widgets</h2>
+                                    <p>Choose which widgets appear on your Cockpit overview.</p>
+                                </div>
+                            </div>
+
+                            <div class="widgets-config">
+                                <div class="widget-item">
+                                    <div class="widget-info">
+                                        <span class="widget-icon">📊</span>
+                                        <span class="widget-name">Status At A Glance</span>
+                                    </div>
+                                    <div class="widget-controls">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="widget-item">
+                                    <div class="widget-info">
+                                        <span class="widget-icon">🔢</span>
+                                        <span class="widget-name">Key Numbers</span>
+                                    </div>
+                                    <div class="widget-controls">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="widget-item">
+                                    <div class="widget-info">
+                                        <span class="widget-icon">⚠️</span>
+                                        <span class="widget-name">Needs Attention</span>
+                                    </div>
+                                    <div class="widget-controls">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="widget-item">
+                                    <div class="widget-info">
+                                        <span class="widget-icon">🎉</span>
+                                        <span class="widget-name">Shoutouts & Wins</span>
+                                    </div>
+                                    <div class="widget-controls">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="widget-item">
+                                    <div class="widget-info">
+                                        <span class="widget-icon">📈</span>
+                                        <span class="widget-name">DORA Metrics</span>
+                                    </div>
+                                    <div class="widget-controls">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="widget-item">
+                                    <div class="widget-info">
+                                        <span class="widget-icon">👥</span>
+                                        <span class="widget-name">Team Performance</span>
+                                    </div>
+                                    <div class="widget-controls">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-actions">
+                            <button class="btn-primary">Save Display Settings</button>
+                            <button class="btn-secondary">Cancel</button>
                         </div>
                     </div>
 
