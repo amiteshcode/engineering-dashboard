@@ -1538,6 +1538,92 @@ window.addEventListener('resize', () => {
     }
 });
 
+// ==========================================
+// NOTIFICATION SYSTEM
+// ==========================================
+
+const notificationBtn = document.getElementById('notificationBtn');
+const notificationDropdown = document.getElementById('notificationDropdown');
+const toggleBtns = document.querySelectorAll('.notification-toggle .toggle-btn');
+const updatesTab = document.getElementById('updatesTab');
+const alertsTab = document.getElementById('alertsTab');
+
+// Toggle notification dropdown
+if (notificationBtn && notificationDropdown) {
+    notificationBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        notificationDropdown.classList.toggle('open');
+        notificationBtn.classList.toggle('active');
+    });
+}
+
+// Handle tab switching
+toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove active from all buttons
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        // Add active to clicked button
+        btn.classList.add('active');
+        
+        // Switch tabs
+        const tab = btn.getAttribute('data-tab');
+        if (tab === 'updates') {
+            updatesTab.classList.remove('hidden');
+            alertsTab.classList.add('hidden');
+        } else {
+            updatesTab.classList.add('hidden');
+            alertsTab.classList.remove('hidden');
+        }
+    });
+});
+
+// Close notification dropdown when clicking outside
+document.addEventListener('click', (e) => {
+    if (notificationDropdown && !notificationDropdown.contains(e.target) && !notificationBtn.contains(e.target)) {
+        notificationDropdown.classList.remove('open');
+        notificationBtn.classList.remove('active');
+    }
+});
+
+// Mark all as read functionality
+const markReadBtn = document.querySelector('.mark-read-btn');
+if (markReadBtn) {
+    markReadBtn.addEventListener('click', () => {
+        const unreadItems = document.querySelectorAll('.notification-item.unread');
+        unreadItems.forEach(item => {
+            item.classList.remove('unread');
+            const dot = item.querySelector('.unread-dot');
+            if (dot) dot.remove();
+        });
+        
+        // Update badge count
+        const badge = document.querySelector('.notification-badge');
+        if (badge) {
+            badge.textContent = '0';
+            badge.style.display = 'none';
+        }
+    });
+}
+
+// Notification item click handler
+const notificationItems = document.querySelectorAll('.notification-item');
+notificationItems.forEach(item => {
+    item.addEventListener('click', () => {
+        // Remove unread state
+        item.classList.remove('unread');
+        const dot = item.querySelector('.unread-dot');
+        if (dot) dot.remove();
+        
+        // Navigate based on content (if it's an alert)
+        if (item.classList.contains('alert-critical') || item.classList.contains('alert-warning')) {
+            navigateToPage('alerts');
+            notificationDropdown.classList.remove('open');
+            notificationBtn.classList.remove('active');
+        }
+    });
+});
+
 console.log('🚀 Engineering Manager Dashboard initialized');
 console.log('📊 DORA Metrics: Deployment Frequency, Lead Time, Change Failure Rate, MTTR');
 console.log('🎯 SPACE Metrics: Satisfaction, Performance, Activity, Collaboration, Efficiency');
+console.log('🔔 Notification system enabled');
