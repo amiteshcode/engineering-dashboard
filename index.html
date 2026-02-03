@@ -482,6 +482,351 @@
                         </div>
                     </div>
 
+                    <!-- Performance View Toggle -->
+                    <div class="performance-view-toggle">
+                        <button class="view-toggle-btn active" data-view="team">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                            </svg>
+                            Team Performance
+                        </button>
+                        <button class="view-toggle-btn" data-view="my">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            My Performance
+                        </button>
+                    </div>
+
+                    <!-- MY PERFORMANCE SECTION (Hidden by default) -->
+                    <div class="performance-section my-performance" id="myPerformanceSection" style="display: none;">
+                        
+                        <!-- EM Performance Overview -->
+                        <section class="em-overview-section">
+                            <div class="em-profile-card">
+                                <div class="em-profile-header">
+                                    <img src="https://i.pravatar.cc/80?img=68" class="em-avatar" alt="EM Avatar">
+                                    <div class="em-info">
+                                        <h3>Alex Johnson</h3>
+                                        <span class="em-role">Engineering Manager • Platform & Backend</span>
+                                        <span class="em-tenure">2.5 years in role • 4 direct reports</span>
+                                    </div>
+                                    <div class="em-score">
+                                        <span class="em-score-value">8.4</span>
+                                        <span class="em-score-label">EM Score</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- EM Key Metrics -->
+                        <section class="em-metrics-section">
+                            <h2 class="section-title">📊 Your Management Metrics</h2>
+                            <div class="em-metrics-grid">
+                                <div class="em-metric-card">
+                                    <div class="em-metric-icon people">👥</div>
+                                    <div class="em-metric-content">
+                                        <span class="em-metric-value">12/12</span>
+                                        <span class="em-metric-label">1:1s Completed</span>
+                                        <span class="em-metric-sublabel">This month</span>
+                                    </div>
+                                    <div class="em-metric-status good">100%</div>
+                                </div>
+
+                                <div class="em-metric-card">
+                                    <div class="em-metric-icon retention">💚</div>
+                                    <div class="em-metric-content">
+                                        <span class="em-metric-value">96%</span>
+                                        <span class="em-metric-label">Team Retention</span>
+                                        <span class="em-metric-sublabel">Last 12 months</span>
+                                    </div>
+                                    <div class="em-metric-status good">Elite</div>
+                                </div>
+
+                                <div class="em-metric-card">
+                                    <div class="em-metric-icon satisfaction">😊</div>
+                                    <div class="em-metric-content">
+                                        <span class="em-metric-value">8.7/10</span>
+                                        <span class="em-metric-label">Team Satisfaction</span>
+                                        <span class="em-metric-sublabel">From pulse surveys</span>
+                                    </div>
+                                    <div class="em-metric-status good">+0.3</div>
+                                </div>
+
+                                <div class="em-metric-card">
+                                    <div class="em-metric-icon growth">📈</div>
+                                    <div class="em-metric-content">
+                                        <span class="em-metric-value">3</span>
+                                        <span class="em-metric-label">Promotions Achieved</span>
+                                        <span class="em-metric-sublabel">This year</span>
+                                    </div>
+                                    <div class="em-metric-status good">On Track</div>
+                                </div>
+
+                                <div class="em-metric-card">
+                                    <div class="em-metric-icon hiring">🎯</div>
+                                    <div class="em-metric-content">
+                                        <span class="em-metric-value">4/5</span>
+                                        <span class="em-metric-label">Hiring Success</span>
+                                        <span class="em-metric-sublabel">Passed probation</span>
+                                    </div>
+                                    <div class="em-metric-status good">80%</div>
+                                </div>
+
+                                <div class="em-metric-card">
+                                    <div class="em-metric-icon feedback">💬</div>
+                                    <div class="em-metric-content">
+                                        <span class="em-metric-value">47</span>
+                                        <span class="em-metric-label">Feedback Given</span>
+                                        <span class="em-metric-sublabel">This quarter</span>
+                                    </div>
+                                    <div class="em-metric-status good">Active</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 1:1 Meeting Tracker -->
+                        <section class="em-oneone-section">
+                            <div class="section-header-row">
+                                <h2 class="section-title">🤝 1:1 Meeting Tracker</h2>
+                                <span class="section-badge good">All on track</span>
+                            </div>
+                            <div class="oneone-grid">
+                                <div class="oneone-card">
+                                    <div class="oneone-member">
+                                        <img src="https://i.pravatar.cc/40?img=1" class="oneone-avatar">
+                                        <div>
+                                            <span class="oneone-name">John Smith</span>
+                                            <span class="oneone-role">Senior Engineer</span>
+                                        </div>
+                                    </div>
+                                    <div class="oneone-status">
+                                        <span class="oneone-last">Last: 2 days ago</span>
+                                        <span class="oneone-next good">Next: Tomorrow 10am</span>
+                                    </div>
+                                    <span class="oneone-streak">🔥 12 week streak</span>
+                                </div>
+
+                                <div class="oneone-card">
+                                    <div class="oneone-member">
+                                        <img src="https://i.pravatar.cc/40?img=2" class="oneone-avatar">
+                                        <div>
+                                            <span class="oneone-name">Sarah Johnson</span>
+                                            <span class="oneone-role">Tech Lead</span>
+                                        </div>
+                                    </div>
+                                    <div class="oneone-status">
+                                        <span class="oneone-last">Last: 5 days ago</span>
+                                        <span class="oneone-next good">Next: Thursday 2pm</span>
+                                    </div>
+                                    <span class="oneone-streak">🔥 8 week streak</span>
+                                </div>
+
+                                <div class="oneone-card warning">
+                                    <div class="oneone-member">
+                                        <img src="https://i.pravatar.cc/40?img=3" class="oneone-avatar">
+                                        <div>
+                                            <span class="oneone-name">Mike Chen</span>
+                                            <span class="oneone-role">Senior Engineer</span>
+                                        </div>
+                                    </div>
+                                    <div class="oneone-status">
+                                        <span class="oneone-last warning">Last: 12 days ago</span>
+                                        <span class="oneone-next warning">Overdue - Schedule now</span>
+                                    </div>
+                                    <button class="btn-sm-primary">Schedule</button>
+                                </div>
+
+                                <div class="oneone-card">
+                                    <div class="oneone-member">
+                                        <img src="https://i.pravatar.cc/40?img=4" class="oneone-avatar">
+                                        <div>
+                                            <span class="oneone-name">Emma Wilson</span>
+                                            <span class="oneone-role">Engineer</span>
+                                        </div>
+                                    </div>
+                                    <div class="oneone-status">
+                                        <span class="oneone-last">Last: 3 days ago</span>
+                                        <span class="oneone-next good">Next: Friday 11am</span>
+                                    </div>
+                                    <span class="oneone-streak">🔥 6 week streak</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Career Development & Growth -->
+                        <section class="em-growth-section">
+                            <h2 class="section-title">🌱 Team Career Development</h2>
+                            <div class="growth-grid">
+                                <div class="growth-card">
+                                    <div class="growth-header">
+                                        <img src="https://i.pravatar.cc/40?img=1" class="growth-avatar">
+                                        <div>
+                                            <span class="growth-name">John Smith</span>
+                                            <span class="growth-path">Senior → Staff Engineer</span>
+                                        </div>
+                                        <span class="growth-progress">75%</span>
+                                    </div>
+                                    <div class="growth-bar">
+                                        <div class="growth-fill" style="width: 75%"></div>
+                                    </div>
+                                    <div class="growth-items">
+                                        <span class="growth-item done">✓ Technical leadership</span>
+                                        <span class="growth-item done">✓ System design</span>
+                                        <span class="growth-item current">→ Cross-team influence</span>
+                                        <span class="growth-item pending">○ Mentorship program</span>
+                                    </div>
+                                </div>
+
+                                <div class="growth-card">
+                                    <div class="growth-header">
+                                        <img src="https://i.pravatar.cc/40?img=2" class="growth-avatar">
+                                        <div>
+                                            <span class="growth-name">Sarah Johnson</span>
+                                            <span class="growth-path">Tech Lead → EM Track</span>
+                                        </div>
+                                        <span class="growth-progress">40%</span>
+                                    </div>
+                                    <div class="growth-bar">
+                                        <div class="growth-fill" style="width: 40%"></div>
+                                    </div>
+                                    <div class="growth-items">
+                                        <span class="growth-item done">✓ People management basics</span>
+                                        <span class="growth-item current">→ Performance reviews</span>
+                                        <span class="growth-item pending">○ Hiring & interviews</span>
+                                        <span class="growth-item pending">○ Strategic planning</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- EM Activities & Time -->
+                        <section class="em-activities-section">
+                            <h2 class="section-title">⏱️ Your Time Allocation</h2>
+                            <div class="activities-grid">
+                                <div class="activity-breakdown">
+                                    <h4>This Week's Focus</h4>
+                                    <div class="activity-bars">
+                                        <div class="activity-row">
+                                            <span class="activity-name">1:1 Meetings</span>
+                                            <div class="activity-bar-wrap">
+                                                <div class="activity-bar" style="width: 25%; background: var(--primary);"></div>
+                                            </div>
+                                            <span class="activity-time">6 hrs</span>
+                                        </div>
+                                        <div class="activity-row">
+                                            <span class="activity-name">Team Meetings</span>
+                                            <div class="activity-bar-wrap">
+                                                <div class="activity-bar" style="width: 20%; background: var(--secondary);"></div>
+                                            </div>
+                                            <span class="activity-time">5 hrs</span>
+                                        </div>
+                                        <div class="activity-row">
+                                            <span class="activity-name">Strategy & Planning</span>
+                                            <div class="activity-bar-wrap">
+                                                <div class="activity-bar" style="width: 15%; background: var(--success);"></div>
+                                            </div>
+                                            <span class="activity-time">4 hrs</span>
+                                        </div>
+                                        <div class="activity-row">
+                                            <span class="activity-name">Cross-team Collaboration</span>
+                                            <div class="activity-bar-wrap">
+                                                <div class="activity-bar" style="width: 18%; background: var(--info);"></div>
+                                            </div>
+                                            <span class="activity-time">4.5 hrs</span>
+                                        </div>
+                                        <div class="activity-row">
+                                            <span class="activity-name">Hiring & Interviews</span>
+                                            <div class="activity-bar-wrap">
+                                                <div class="activity-bar" style="width: 12%; background: var(--warning);"></div>
+                                            </div>
+                                            <span class="activity-time">3 hrs</span>
+                                        </div>
+                                        <div class="activity-row">
+                                            <span class="activity-name">Focus Time</span>
+                                            <div class="activity-bar-wrap">
+                                                <div class="activity-bar" style="width: 10%; background: var(--gray-400);"></div>
+                                            </div>
+                                            <span class="activity-time">2.5 hrs</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="em-recommendations">
+                                    <h4>💡 Recommendations</h4>
+                                    <div class="recommendation-list">
+                                        <div class="recommendation-item warning">
+                                            <span class="rec-icon">⚠️</span>
+                                            <div class="rec-content">
+                                                <span class="rec-title">Schedule Mike's 1:1</span>
+                                                <span class="rec-desc">Overdue by 5 days - prioritize this week</span>
+                                            </div>
+                                        </div>
+                                        <div class="recommendation-item info">
+                                            <span class="rec-icon">📊</span>
+                                            <div class="rec-content">
+                                                <span class="rec-title">Review Sarah's promotion case</span>
+                                                <span class="rec-desc">Q1 promotion cycle starts in 2 weeks</span>
+                                            </div>
+                                        </div>
+                                        <div class="recommendation-item success">
+                                            <span class="rec-icon">🎉</span>
+                                            <div class="rec-content">
+                                                <span class="rec-title">John hit Staff milestone!</span>
+                                                <span class="rec-desc">Recognize in next team meeting</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- EM Performance vs Peers -->
+                        <section class="em-comparison-section">
+                            <h2 class="section-title">📈 Your Performance vs EM Benchmarks</h2>
+                            <div class="comparison-grid">
+                                <div class="comparison-metric">
+                                    <span class="comp-label">Team Retention</span>
+                                    <div class="comp-bar">
+                                        <div class="comp-benchmark" style="left: 85%"><span>Avg: 85%</span></div>
+                                        <div class="comp-value" style="width: 96%"></div>
+                                    </div>
+                                    <span class="comp-result good">96% • Top 10%</span>
+                                </div>
+                                <div class="comparison-metric">
+                                    <span class="comp-label">1:1 Consistency</span>
+                                    <div class="comp-bar">
+                                        <div class="comp-benchmark" style="left: 78%"><span>Avg: 78%</span></div>
+                                        <div class="comp-value" style="width: 100%"></div>
+                                    </div>
+                                    <span class="comp-result good">100% • Top 5%</span>
+                                </div>
+                                <div class="comparison-metric">
+                                    <span class="comp-label">Team Satisfaction</span>
+                                    <div class="comp-bar">
+                                        <div class="comp-benchmark" style="left: 72%"><span>Avg: 7.2</span></div>
+                                        <div class="comp-value" style="width: 87%"></div>
+                                    </div>
+                                    <span class="comp-result good">8.7/10 • Top 15%</span>
+                                </div>
+                                <div class="comparison-metric">
+                                    <span class="comp-label">Promotions/Year</span>
+                                    <div class="comp-bar">
+                                        <div class="comp-benchmark" style="left: 50%"><span>Avg: 1.5</span></div>
+                                        <div class="comp-value" style="width: 75%"></div>
+                                    </div>
+                                    <span class="comp-result good">3 • Top 20%</span>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- TEAM PERFORMANCE SECTION (Default View) -->
+                    <div class="performance-section team-performance" id="teamPerformanceSection">
+
                     <!-- STATUS AT A GLANCE - Traffic Light System with Context -->
                     <section class="status-glance-section">
                         <div class="status-cards-enhanced">
@@ -1458,6 +1803,7 @@
                             </div>
                         </div>
                     </section>
+                    </div><!-- End Team Performance Section -->
                 </div>
 
                 <!-- ============================================ -->
@@ -2943,6 +3289,243 @@
                                     <div class="metric-bar-fill warning" style="width: 12%"></div>
                                 </div>
                                 <div class="metric-subtitle">Rework indicator (CFR related)</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- AI-Assisted Coding Metrics -->
+                    <section class="metrics-section ai-metrics-section">
+                        <div class="section-header-enhanced">
+                            <div>
+                                <h2 class="section-title">
+                                    <span class="section-icon">🤖</span>
+                                    AI-Assisted Development Metrics
+                                </h2>
+                                <p class="section-subtitle">Track how your team leverages AI tools across the development lifecycle</p>
+                            </div>
+                            <div class="ai-tools-legend">
+                                <span class="ai-tool-badge copilot">GitHub Copilot</span>
+                                <span class="ai-tool-badge cursor">Cursor AI</span>
+                                <span class="ai-tool-badge chatgpt">ChatGPT</span>
+                            </div>
+                        </div>
+
+                        <!-- AI Usage Overview Cards -->
+                        <div class="ai-metrics-grid">
+                            <div class="ai-metric-card">
+                                <div class="ai-metric-header">
+                                    <span class="ai-metric-icon">✍️</span>
+                                    <h4>Code Generation</h4>
+                                </div>
+                                <div class="ai-metric-value">42%</div>
+                                <div class="ai-metric-label">of new code AI-assisted</div>
+                                <div class="ai-metric-breakdown">
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Accepted suggestions</span>
+                                        <span class="ai-breakdown-value">2,847</span>
+                                    </div>
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Lines generated</span>
+                                        <span class="ai-breakdown-value">12.4K</span>
+                                    </div>
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Acceptance rate</span>
+                                        <span class="ai-breakdown-value good">34%</span>
+                                    </div>
+                                </div>
+                                <div class="ai-trend positive">↑ 8% from last month</div>
+                            </div>
+
+                            <div class="ai-metric-card">
+                                <div class="ai-metric-header">
+                                    <span class="ai-metric-icon">🔍</span>
+                                    <h4>Code Review Assist</h4>
+                                </div>
+                                <div class="ai-metric-value">67%</div>
+                                <div class="ai-metric-label">of PRs use AI review</div>
+                                <div class="ai-metric-breakdown">
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Issues caught by AI</span>
+                                        <span class="ai-breakdown-value">234</span>
+                                    </div>
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Review time saved</span>
+                                        <span class="ai-breakdown-value">18 hrs</span>
+                                    </div>
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">False positives</span>
+                                        <span class="ai-breakdown-value warning">12%</span>
+                                    </div>
+                                </div>
+                                <div class="ai-trend positive">↑ 15% adoption</div>
+                            </div>
+
+                            <div class="ai-metric-card">
+                                <div class="ai-metric-header">
+                                    <span class="ai-metric-icon">🐛</span>
+                                    <h4>Bug Resolution</h4>
+                                </div>
+                                <div class="ai-metric-value">38%</div>
+                                <div class="ai-metric-label">of bugs fixed with AI help</div>
+                                <div class="ai-metric-breakdown">
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Bugs diagnosed</span>
+                                        <span class="ai-breakdown-value">89</span>
+                                    </div>
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Avg resolution time</span>
+                                        <span class="ai-breakdown-value good">-32%</span>
+                                    </div>
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Root cause found</span>
+                                        <span class="ai-breakdown-value">78%</span>
+                                    </div>
+                                </div>
+                                <div class="ai-trend positive">↑ 22% efficiency</div>
+                            </div>
+
+                            <div class="ai-metric-card">
+                                <div class="ai-metric-header">
+                                    <span class="ai-metric-icon">📝</span>
+                                    <h4>Documentation</h4>
+                                </div>
+                                <div class="ai-metric-value">54%</div>
+                                <div class="ai-metric-label">of docs AI-generated</div>
+                                <div class="ai-metric-breakdown">
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Docs created</span>
+                                        <span class="ai-breakdown-value">156</span>
+                                    </div>
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Comments added</span>
+                                        <span class="ai-breakdown-value">1,240</span>
+                                    </div>
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Quality score</span>
+                                        <span class="ai-breakdown-value good">8.4/10</span>
+                                    </div>
+                                </div>
+                                <div class="ai-trend positive">↑ 45% coverage</div>
+                            </div>
+
+                            <div class="ai-metric-card">
+                                <div class="ai-metric-header">
+                                    <span class="ai-metric-icon">🧪</span>
+                                    <h4>Test Generation</h4>
+                                </div>
+                                <div class="ai-metric-value">29%</div>
+                                <div class="ai-metric-label">of tests AI-generated</div>
+                                <div class="ai-metric-breakdown">
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Unit tests created</span>
+                                        <span class="ai-breakdown-value">423</span>
+                                    </div>
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Coverage increase</span>
+                                        <span class="ai-breakdown-value good">+12%</span>
+                                    </div>
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Test quality</span>
+                                        <span class="ai-breakdown-value">7.8/10</span>
+                                    </div>
+                                </div>
+                                <div class="ai-trend positive">↑ Growing adoption</div>
+                            </div>
+
+                            <div class="ai-metric-card">
+                                <div class="ai-metric-header">
+                                    <span class="ai-metric-icon">🔄</span>
+                                    <h4>Refactoring</h4>
+                                </div>
+                                <div class="ai-metric-value">23%</div>
+                                <div class="ai-metric-label">of refactors AI-suggested</div>
+                                <div class="ai-metric-breakdown">
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Suggestions made</span>
+                                        <span class="ai-breakdown-value">187</span>
+                                    </div>
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Accepted</span>
+                                        <span class="ai-breakdown-value">68%</span>
+                                    </div>
+                                    <div class="ai-breakdown-item">
+                                        <span class="ai-breakdown-label">Code quality</span>
+                                        <span class="ai-breakdown-value good">+15%</span>
+                                    </div>
+                                </div>
+                                <div class="ai-trend neutral">→ Stable</div>
+                            </div>
+                        </div>
+
+                        <!-- AI Impact Summary -->
+                        <div class="ai-impact-summary">
+                            <div class="impact-card">
+                                <h4>Overall AI Impact on Productivity</h4>
+                                <div class="impact-stats">
+                                    <div class="impact-stat">
+                                        <span class="impact-value positive">+28%</span>
+                                        <span class="impact-label">Developer Velocity</span>
+                                    </div>
+                                    <div class="impact-stat">
+                                        <span class="impact-value positive">-34%</span>
+                                        <span class="impact-label">Time to First Commit</span>
+                                    </div>
+                                    <div class="impact-stat">
+                                        <span class="impact-value positive">-22%</span>
+                                        <span class="impact-label">Bug Resolution Time</span>
+                                    </div>
+                                    <div class="impact-stat">
+                                        <span class="impact-value positive">+45%</span>
+                                        <span class="impact-label">Documentation Coverage</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Usage by Team -->
+                        <div class="ai-team-breakdown">
+                            <h4>AI Adoption by Team</h4>
+                            <div class="ai-team-list">
+                                <div class="ai-team-row">
+                                    <span class="ai-team-name">Platform Team</span>
+                                    <div class="ai-adoption-bar">
+                                        <div class="ai-adoption-fill" style="width: 78%"></div>
+                                    </div>
+                                    <span class="ai-adoption-value">78%</span>
+                                    <span class="ai-adoption-trend positive">↑</span>
+                                </div>
+                                <div class="ai-team-row">
+                                    <span class="ai-team-name">Frontend Team</span>
+                                    <div class="ai-adoption-bar">
+                                        <div class="ai-adoption-fill" style="width: 65%"></div>
+                                    </div>
+                                    <span class="ai-adoption-value">65%</span>
+                                    <span class="ai-adoption-trend positive">↑</span>
+                                </div>
+                                <div class="ai-team-row">
+                                    <span class="ai-team-name">Backend Team</span>
+                                    <div class="ai-adoption-bar">
+                                        <div class="ai-adoption-fill" style="width: 52%"></div>
+                                    </div>
+                                    <span class="ai-adoption-value">52%</span>
+                                    <span class="ai-adoption-trend neutral">→</span>
+                                </div>
+                                <div class="ai-team-row">
+                                    <span class="ai-team-name">Mobile Team</span>
+                                    <div class="ai-adoption-bar">
+                                        <div class="ai-adoption-fill" style="width: 41%"></div>
+                                    </div>
+                                    <span class="ai-adoption-value">41%</span>
+                                    <span class="ai-adoption-trend positive">↑</span>
+                                </div>
+                                <div class="ai-team-row">
+                                    <span class="ai-team-name">DevOps Team</span>
+                                    <div class="ai-adoption-bar">
+                                        <div class="ai-adoption-fill" style="width: 89%"></div>
+                                    </div>
+                                    <span class="ai-adoption-value">89%</span>
+                                    <span class="ai-adoption-trend positive">↑</span>
+                                </div>
                             </div>
                         </div>
                     </section>

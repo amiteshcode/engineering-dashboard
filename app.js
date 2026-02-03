@@ -1740,8 +1740,37 @@ toastStyles.textContent = `
 `;
 document.head.appendChild(toastStyles);
 
+// ==========================================
+// COCKPIT PERFORMANCE VIEW TOGGLE
+// ==========================================
+
+const viewToggleBtns = document.querySelectorAll('.view-toggle-btn');
+const myPerformanceSection = document.getElementById('myPerformanceSection');
+const teamPerformanceSection = document.getElementById('teamPerformanceSection');
+
+viewToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const view = btn.dataset.view;
+        
+        // Update active button
+        viewToggleBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Toggle sections
+        if (view === 'my') {
+            if (myPerformanceSection) myPerformanceSection.style.display = 'block';
+            if (teamPerformanceSection) teamPerformanceSection.style.display = 'none';
+        } else {
+            if (myPerformanceSection) myPerformanceSection.style.display = 'none';
+            if (teamPerformanceSection) teamPerformanceSection.style.display = 'block';
+        }
+    });
+});
+
 console.log('🚀 Engineering Manager Dashboard initialized');
 console.log('📊 DORA Metrics: Deployment Frequency, Lead Time, Change Failure Rate, MTTR');
 console.log('🎯 SPACE Metrics: Satisfaction, Performance, Activity, Collaboration, Efficiency');
 console.log('🔔 Notification system enabled');
 console.log('⚙️ Settings page enabled');
+console.log('🤖 AI-assisted development metrics enabled');
+console.log('👤 EM personal performance tracking enabled');
