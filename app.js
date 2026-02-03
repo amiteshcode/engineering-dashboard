@@ -404,31 +404,41 @@ navItems.forEach(item => {
     });
 });
 
-// Navigation for main items (Cockpit, Team)
-document.querySelectorAll('.nav-item-main').forEach(item => {
-    item.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        // Remove active class from all nav items
-        navItems.forEach(i => i.classList.remove('active'));
-        document.querySelectorAll('.nav-item-main').forEach(i => i.classList.remove('active'));
-        
-        // Add active class to clicked item
-        item.classList.add('active');
-        
-        // Get page info
-        const pageName = item.querySelector('span').textContent.trim();
-        const pageId = item.dataset.page;
-        const sectionName = item.dataset.sectionName;
-        
-        // Update header
-        pageTitle.textContent = pageName;
-        breadcrumbSection.textContent = sectionName;
-        breadcrumbPage.textContent = pageName;
-        
-        // Switch page content
-        switchPage(pageId);
+// Navigation for main items (Cockpit, Team, Settings) - using event delegation
+document.querySelector('.sidebar-nav').addEventListener('click', (e) => {
+    const item = e.target.closest('.nav-item-main');
+    if (!item) return;
+    
+    e.preventDefault();
+    
+    // Remove active class from all nav items
+    navItems.forEach(i => i.classList.remove('active'));
+    document.querySelectorAll('.nav-item-main').forEach(i => i.classList.remove('active'));
+    
+    // Add active class to clicked item
+    item.classList.add('active');
+    
+    // Get page info
+    const spanElement = item.querySelector('span');
+    const pageName = spanElement ? spanElement.textContent.trim() : 'Unknown';
+    const pageId = item.dataset.page;
+    const sectionName = item.dataset.sectionName || pageName;
+    
+    // Update header
+    pageTitle.textContent = pageName;
+    breadcrumbSection.textContent = sectionName;
+    breadcrumbPage.textContent = pageName;
+    
+    // Close accordion sections when navigating to main items
+    document.querySelectorAll('.nav-section-content').forEach(content => {
+        content.classList.remove('expanded');
     });
+    document.querySelectorAll('.nav-section-header').forEach(header => {
+        header.classList.remove('expanded');
+    });
+    
+    // Switch page content
+    switchPage(pageId);
 });
 
 // Navigate to page from cockpit cards
@@ -1649,44 +1659,7 @@ settingsTabs.forEach(tab => {
     });
 });
 
-// Handle Settings nav item click
-const settingsNavItem = document.querySelector('.settings-nav');
-if (settingsNavItem) {
-    settingsNavItem.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        const pageName = settingsNavItem.getAttribute('data-page');
-        const sectionName = settingsNavItem.getAttribute('data-section-name');
-        
-        // Update active states
-        document.querySelectorAll('.nav-item, .nav-item-main').forEach(item => {
-            item.classList.remove('active');
-        });
-        settingsNavItem.classList.add('active');
-        
-        // Update header
-        pageTitle.textContent = 'Settings';
-        breadcrumbSection.textContent = 'Settings';
-        breadcrumbPage.textContent = 'Configuration';
-        
-        // Show settings page
-        document.querySelectorAll('.page-content').forEach(page => {
-            page.classList.remove('active');
-        });
-        const settingsPage = document.getElementById('page-settings');
-        if (settingsPage) {
-            settingsPage.classList.add('active');
-        }
-        
-        // Close all nav sections
-        document.querySelectorAll('.nav-section-content').forEach(content => {
-            content.classList.remove('expanded');
-        });
-        document.querySelectorAll('.nav-section-header').forEach(header => {
-            header.classList.remove('expanded');
-        });
-    });
-}
+// Settings nav functionality is handled by the main .nav-item-main event delegation handler above
 
 // Reset to defaults function
 function resetToDefaults(type) {
