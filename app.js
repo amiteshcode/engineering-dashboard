@@ -352,14 +352,28 @@ sidebarToggle.addEventListener('click', () => {
     sidebar.classList.toggle('collapsed');
 });
 
-// Navigation Section Toggle
+// Navigation Section Toggle - Accordion Behavior (only one open at a time)
 navSectionHeaders.forEach(header => {
     header.addEventListener('click', () => {
         const sectionId = header.dataset.section;
         const content = document.getElementById(sectionId);
+        const isCurrentlyExpanded = header.classList.contains('expanded');
         
-        header.classList.toggle('expanded');
-        content.classList.toggle('expanded');
+        // Close all sections first
+        navSectionHeaders.forEach(h => {
+            h.classList.remove('expanded');
+            const contentId = h.dataset.section;
+            const contentEl = document.getElementById(contentId);
+            if (contentEl) {
+                contentEl.classList.remove('expanded');
+            }
+        });
+        
+        // If the clicked section wasn't expanded, open it
+        if (!isCurrentlyExpanded) {
+            header.classList.add('expanded');
+            content.classList.add('expanded');
+        }
     });
 });
 
