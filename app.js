@@ -404,41 +404,44 @@ navItems.forEach(item => {
     });
 });
 
-// Navigation for main items (Cockpit, Team, Settings) - using event delegation
-document.querySelector('.sidebar-nav').addEventListener('click', (e) => {
-    const item = e.target.closest('.nav-item-main');
-    if (!item) return;
-    
-    e.preventDefault();
-    
-    // Remove active class from all nav items
-    navItems.forEach(i => i.classList.remove('active'));
-    document.querySelectorAll('.nav-item-main').forEach(i => i.classList.remove('active'));
-    
-    // Add active class to clicked item
-    item.classList.add('active');
-    
-    // Get page info
-    const spanElement = item.querySelector('span');
-    const pageName = spanElement ? spanElement.textContent.trim() : 'Unknown';
-    const pageId = item.dataset.page;
-    const sectionName = item.dataset.sectionName || pageName;
-    
-    // Update header
-    pageTitle.textContent = pageName;
-    breadcrumbSection.textContent = sectionName;
-    breadcrumbPage.textContent = pageName;
-    
-    // Close accordion sections when navigating to main items
-    document.querySelectorAll('.nav-section-content').forEach(content => {
-        content.classList.remove('expanded');
+// Navigation for main items (Cockpit, Team, Settings)
+const mainNavItems = document.querySelectorAll('.nav-item-main');
+mainNavItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Remove active class from all nav items
+        navItems.forEach(i => i.classList.remove('active'));
+        mainNavItems.forEach(i => i.classList.remove('active'));
+        
+        // Add active class to clicked item
+        item.classList.add('active');
+        
+        // Get page info
+        const spanElement = item.querySelector('span');
+        const pageName = spanElement ? spanElement.textContent.trim() : 'Unknown';
+        const pageId = item.dataset.page;
+        const sectionName = item.dataset.sectionName || pageName;
+        
+        // Update header
+        pageTitle.textContent = pageName;
+        breadcrumbSection.textContent = sectionName;
+        breadcrumbPage.textContent = pageName;
+        
+        // Close accordion sections when navigating to main items
+        navSectionHeaders.forEach(header => {
+            header.classList.remove('expanded');
+            const contentId = header.dataset.section;
+            const contentEl = document.getElementById(contentId);
+            if (contentEl) {
+                contentEl.classList.remove('expanded');
+            }
+        });
+        
+        // Switch page content
+        switchPage(pageId);
     });
-    document.querySelectorAll('.nav-section-header').forEach(header => {
-        header.classList.remove('expanded');
-    });
-    
-    // Switch page content
-    switchPage(pageId);
 });
 
 // Navigate to page from cockpit cards
