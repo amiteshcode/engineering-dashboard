@@ -1623,7 +1623,149 @@ notificationItems.forEach(item => {
     });
 });
 
+// ==========================================
+// SETTINGS PAGE TAB SWITCHING
+// ==========================================
+
+const settingsTabs = document.querySelectorAll('.settings-tab');
+const settingsContents = document.querySelectorAll('.settings-content');
+
+settingsTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const targetTab = tab.getAttribute('data-settings-tab');
+        
+        // Remove active from all tabs
+        settingsTabs.forEach(t => t.classList.remove('active'));
+        // Add active to clicked tab
+        tab.classList.add('active');
+        
+        // Hide all content
+        settingsContents.forEach(content => content.classList.remove('active'));
+        // Show target content
+        const targetContent = document.getElementById(`settings-${targetTab}`);
+        if (targetContent) {
+            targetContent.classList.add('active');
+        }
+    });
+});
+
+// Handle Settings nav item click
+const settingsNavItem = document.querySelector('.settings-nav');
+if (settingsNavItem) {
+    settingsNavItem.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const pageName = settingsNavItem.getAttribute('data-page');
+        const sectionName = settingsNavItem.getAttribute('data-section-name');
+        
+        // Update active states
+        document.querySelectorAll('.nav-item, .nav-item-main').forEach(item => {
+            item.classList.remove('active');
+        });
+        settingsNavItem.classList.add('active');
+        
+        // Update header
+        pageTitle.textContent = 'Settings';
+        breadcrumbSection.textContent = 'Settings';
+        breadcrumbPage.textContent = 'Configuration';
+        
+        // Show settings page
+        document.querySelectorAll('.page-content').forEach(page => {
+            page.classList.remove('active');
+        });
+        const settingsPage = document.getElementById('page-settings');
+        if (settingsPage) {
+            settingsPage.classList.add('active');
+        }
+        
+        // Close all nav sections
+        document.querySelectorAll('.nav-section-content').forEach(content => {
+            content.classList.remove('expanded');
+        });
+        document.querySelectorAll('.nav-section-header').forEach(header => {
+            header.classList.remove('expanded');
+        });
+    });
+}
+
+// Reset to defaults function
+function resetToDefaults(type) {
+    if (type === 'dora') {
+        // Reset DORA metrics to research defaults
+        const doraDefaults = {
+            'df-elite': 'Multiple per day',
+            'df-high': '1 per week',
+            'df-medium': '1 per month',
+            'df-low': '< 1 per month',
+            'lt-elite': '< 1 hour',
+            'lt-high': '1 day - 1 week',
+            'lt-medium': '1 week - 1 month',
+            'lt-low': '> 1 month',
+            'cfr-elite': 15,
+            'cfr-high': 30,
+            'cfr-medium': 45,
+            'cfr-low': 46,
+            'mttr-elite': '< 1 hour',
+            'mttr-high': '< 1 day',
+            'mttr-medium': '< 1 week',
+            'mttr-low': '> 1 week'
+        };
+        
+        Object.entries(doraDefaults).forEach(([metric, value]) => {
+            const input = document.querySelector(`[data-metric="${metric}"]`);
+            if (input) {
+                input.value = value;
+            }
+        });
+        
+        // Show confirmation
+        showToast('DORA metrics reset to research defaults');
+    }
+}
+
+// Toast notification for settings
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'settings-toast';
+    toast.textContent = message;
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: var(--gray-800);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        z-index: 10000;
+        animation: slideUp 0.3s ease;
+    `;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+// Add animation keyframes
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
+`;
+document.head.appendChild(style);
+
 console.log('🚀 Engineering Manager Dashboard initialized');
 console.log('📊 DORA Metrics: Deployment Frequency, Lead Time, Change Failure Rate, MTTR');
 console.log('🎯 SPACE Metrics: Satisfaction, Performance, Activity, Collaboration, Efficiency');
 console.log('🔔 Notification system enabled');
+console.log('⚙️ Settings page enabled');
