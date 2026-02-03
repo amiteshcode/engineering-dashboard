@@ -3058,6 +3058,434 @@ html, body {
 }
 
 /* ==========================================
+   DORA DETAILED CARDS (Alerts Page)
+   ========================================== */
+
+.dora-detailed-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.dora-detailed-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray-200);
+    padding: 20px;
+    transition: var(--transition);
+}
+
+.dora-detailed-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-color: var(--dora-color);
+}
+
+.dora-detailed-card.has-alert {
+    border-left: 4px solid var(--warning);
+    background: linear-gradient(90deg, var(--warning-light) 0%, var(--white) 15%);
+}
+
+.dora-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    gap: 12px;
+}
+
+.dora-card-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.dora-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.dora-icon.df {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #059669;
+}
+
+.dora-icon.lt {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    color: #2563eb;
+}
+
+.dora-icon.cfr {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #dc2626;
+}
+
+.dora-icon.mttr {
+    background: linear-gradient(135deg, #cffafe, #a5f3fc);
+    color: #0891b2;
+}
+
+.dora-card-title h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin: 0;
+}
+
+.dora-subtitle {
+    display: block;
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-top: 2px;
+}
+
+.dora-card-value {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.big-value {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.big-value.good {
+    color: var(--success);
+}
+
+.big-value.warning {
+    color: var(--warning);
+}
+
+.big-value.danger {
+    color: var(--danger);
+}
+
+.value-unit {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-500);
+}
+
+.value-trend {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-left: auto;
+}
+
+.value-trend.positive {
+    background: var(--success-light);
+    color: #059669;
+}
+
+.value-trend.negative {
+    background: var(--danger-light);
+    color: #dc2626;
+}
+
+.dora-card-breakdown {
+    margin-bottom: 16px;
+}
+
+.breakdown-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gray-500);
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.threshold-label {
+    font-weight: 500;
+    color: var(--danger);
+    text-transform: none;
+}
+
+.breakdown-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    background: var(--gray-50);
+    transition: var(--transition);
+}
+
+.breakdown-row:hover {
+    background: var(--gray-100);
+}
+
+.breakdown-row.alert {
+    background: var(--danger-light);
+}
+
+.team-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.team-name {
+    flex: 0 0 100px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+.mini-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--gray-200);
+    border-radius: 4px;
+    overflow: visible;
+    position: relative;
+}
+
+.mini-bar.has-threshold {
+    overflow: visible;
+}
+
+.mini-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.mini-fill.good {
+    background: linear-gradient(90deg, var(--success), #34d399);
+}
+
+.mini-fill.warning {
+    background: linear-gradient(90deg, var(--warning), #fbbf24);
+}
+
+.mini-fill.danger {
+    background: linear-gradient(90deg, var(--danger), #f87171);
+}
+
+.threshold-line {
+    position: absolute;
+    top: -3px;
+    bottom: -3px;
+    width: 2px;
+    background: var(--danger);
+    border-radius: 1px;
+}
+
+.team-value {
+    flex: 0 0 60px;
+    text-align: right;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-700);
+}
+
+.team-value.good {
+    color: var(--success);
+}
+
+.team-value.warning {
+    color: var(--warning);
+}
+
+.team-value.danger {
+    color: var(--danger);
+}
+
+.team-status {
+    flex: 0 0 60px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+.team-status.elite {
+    background: var(--success-light);
+    color: #059669;
+}
+
+.team-status.high {
+    background: var(--dora-bg);
+    color: var(--dora-color);
+}
+
+.team-status.medium {
+    background: var(--warning-light);
+    color: #d97706;
+}
+
+.team-status.low {
+    background: var(--danger-light);
+    color: #dc2626;
+}
+
+/* Incident rows for MTTR */
+.incident-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    background: var(--gray-50);
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.severity-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.severity-badge.high {
+    background: var(--danger);
+    color: white;
+}
+
+.severity-badge.medium {
+    background: var(--warning);
+    color: white;
+}
+
+.severity-badge.low {
+    background: var(--info);
+    color: white;
+}
+
+.incident-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.incident-title {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-800);
+}
+
+.incident-service {
+    display: block;
+    font-size: 11px;
+    color: var(--gray-500);
+}
+
+.recovery-time {
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.recovery-time.good {
+    color: var(--success);
+}
+
+.recovery-time.warning {
+    color: var(--warning);
+}
+
+.recovery-time.danger {
+    color: var(--danger);
+}
+
+.dora-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--gray-100);
+}
+
+.benchmark-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.benchmark-info .benchmark-label {
+    font-size: 11px;
+    color: var(--gray-500);
+}
+
+.benchmark-info .benchmark-status {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+.benchmark-info .benchmark-status.elite {
+    background: var(--success-light);
+    color: #059669;
+}
+
+.benchmark-info .benchmark-status.high {
+    background: var(--dora-bg);
+    color: var(--dora-color);
+}
+
+.benchmark-info .benchmark-status.medium {
+    background: var(--warning-light);
+    color: #d97706;
+}
+
+.target-info {
+    font-size: 11px;
+    color: var(--gray-500);
+}
+
+/* Responsive for detailed DORA cards */
+@media (max-width: 1200px) {
+    .dora-detailed-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .dora-card-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .breakdown-row {
+        flex-wrap: wrap;
+    }
+    
+    .team-name {
+        flex: 1 1 100%;
+    }
+    
+    .mini-bar {
+        flex: 1 1 100%;
+        order: 3;
+    }
+}
+
+/* ==========================================
    PIPELINE METRICS (Delivery Speed)
    ========================================== */
 
