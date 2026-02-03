@@ -1726,9 +1726,9 @@ function showToast(message) {
     }, 3000);
 }
 
-// Add animation keyframes
-const style = document.createElement('style');
-style.textContent = `
+// Add animation keyframes for toast notifications
+const toastStyles = document.createElement('style');
+toastStyles.textContent = `
     @keyframes slideUp {
         from { transform: translateY(20px); opacity: 0; }
         to { transform: translateY(0); opacity: 1; }
@@ -1738,7 +1738,7 @@ style.textContent = `
         to { opacity: 0; }
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(toastStyles);
 
 console.log('🚀 Engineering Manager Dashboard initialized');
 console.log('📊 DORA Metrics: Deployment Frequency, Lead Time, Change Failure Rate, MTTR');
