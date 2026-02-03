@@ -108,10 +108,11 @@ body {
 }
 
 .logo-text {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--gray-800);
-    letter-spacing: -0.5px;
+    letter-spacing: -0.3px;
+    white-space: nowrap;
 }
 
 .sidebar.collapsed .logo-text {
