@@ -1,0 +1,2810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hivel - Engineering Manager Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 4L20 8V16L12 20L4 16V8L12 4Z" fill="white"/>
+                            <path d="M12 4L12 12L20 8L12 4Z" fill="rgba(255,255,255,0.7)"/>
+                            <path d="M8 10L12 12L12 20L8 18V10Z" fill="rgba(255,255,255,0.5)"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">hivel</span>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <!-- Cockpit Section (Main Overview) -->
+                <div class="nav-section cockpit-section">
+                    <a href="#" class="nav-item-main active" data-page="cockpit" data-section-name="Cockpit">
+                        <div class="nav-item-main-left">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                            <span>Cockpit</span>
+                        </div>
+                        <span class="nav-badge">Overview</span>
+                    </a>
+                </div>
+
+                <!-- Team Section -->
+                <div class="nav-section team-section">
+                    <a href="#" class="nav-item-main" data-page="team" data-section-name="Team">
+                        <div class="nav-item-main-left">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5"></path>
+                                <path d="M2 12l10 5 10-5"></path>
+                            </svg>
+                            <span>Team</span>
+                        </div>
+                        <span class="nav-badge team">Hierarchy</span>
+                    </a>
+                </div>
+
+                <div class="nav-divider"></div>
+
+                <!-- Delivery Section -->
+                <div class="nav-section">
+                    <button class="nav-section-header expanded" data-section="delivery">
+                        <div class="nav-section-left">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 11l3 3L22 4"></path>
+                                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
+                            </svg>
+                            <span>Delivery</span>
+                        </div>
+                        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="nav-section-content expanded" id="delivery">
+                        <a href="#" class="nav-item" data-page="investment" data-section-name="Delivery">Investment</a>
+                        <a href="#" class="nav-item" data-page="work-breakdown" data-section-name="Delivery">Work Item Breakdown</a>
+                        <a href="#" class="nav-item" data-page="goals" data-section-name="Delivery">Goals</a>
+                        <a href="#" class="nav-item" data-page="alerts" data-section-name="Delivery">Alerts</a>
+                    </div>
+                </div>
+
+                <!-- Engineering Health Section -->
+                <div class="nav-section">
+                    <button class="nav-section-header expanded" data-section="engineering">
+                        <div class="nav-section-left">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                            <span>Engineering Health</span>
+                        </div>
+                        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="nav-section-content expanded" id="engineering">
+                        <a href="#" class="nav-item" data-page="coding-breakdown" data-section-name="Engineering Health">Coding Breakdown</a>
+                        <a href="#" class="nav-item" data-page="process-flow" data-section-name="Engineering Health">Process Flow</a>
+                        <a href="#" class="nav-item" data-page="pull-requests" data-section-name="Engineering Health">Pull Requests</a>
+                    </div>
+                </div>
+
+                <!-- People & Performance Section -->
+                <div class="nav-section">
+                    <button class="nav-section-header expanded" data-section="people">
+                        <div class="nav-section-left">
+                            <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 00-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 010 7.75"></path>
+                            </svg>
+                            <span>People & Performance</span>
+                        </div>
+                        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="nav-section-content expanded" id="people">
+                        <a href="#" class="nav-item" data-page="performance-insights" data-section-name="People & Performance">Performance Insights</a>
+                        <a href="#" class="nav-item" data-page="dev360" data-section-name="People & Performance">Dev360</a>
+                        <a href="#" class="nav-item" data-page="team-pulse" data-section-name="People & Performance">Team Pulse</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Framework Legend -->
+            <div class="sidebar-footer">
+                <div class="framework-legend">
+                    <span class="legend-title">Frameworks</span>
+                    <div class="legend-items">
+                        <span class="framework-tag dora">DORA</span>
+                        <span class="framework-tag space">SPACE</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-left">
+                    <h1 class="page-title" id="pageTitle">Investment</h1>
+                    <div class="breadcrumb">
+                        <span id="breadcrumbSection">Delivery</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                        <span id="breadcrumbPage">Investment</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <!-- Advanced Filters -->
+                    <div class="filter-group">
+                        <div class="filter-dropdown">
+                            <button class="filter-btn" id="departmentFilter">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 21h18M3 7v14M21 7v14M6 7V4h12v3M9 21v-6h6v6"></path>
+                                </svg>
+                                <span>All Departments</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu" id="departmentDropdown">
+                                <div class="dropdown-item active" data-value="all">All Departments</div>
+                                <div class="dropdown-item" data-value="engineering">Engineering</div>
+                                <div class="dropdown-item" data-value="product">Product</div>
+                                <div class="dropdown-item" data-value="qa">QA & Testing</div>
+                                <div class="dropdown-item" data-value="devops">DevOps</div>
+                            </div>
+                        </div>
+                        <div class="filter-dropdown">
+                            <button class="filter-btn" id="teamFilter">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                </svg>
+                                <span>All Teams</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu" id="teamDropdown">
+                                <div class="dropdown-item active" data-value="all">All Teams</div>
+                                <div class="dropdown-item" data-value="platform">Platform Team</div>
+                                <div class="dropdown-item" data-value="frontend">Frontend Team</div>
+                                <div class="dropdown-item" data-value="backend">Backend Team</div>
+                                <div class="dropdown-item" data-value="mobile">Mobile Team</div>
+                                <div class="dropdown-item" data-value="devops">DevOps Team</div>
+                            </div>
+                        </div>
+                        <div class="filter-dropdown">
+                            <button class="filter-btn" id="individualFilter">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <span>All Members</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu" id="individualDropdown">
+                                <div class="dropdown-item active" data-value="all">All Members</div>
+                                <div class="dropdown-item" data-value="john">John Smith</div>
+                                <div class="dropdown-item" data-value="sarah">Sarah Johnson</div>
+                                <div class="dropdown-item" data-value="mike">Mike Chen</div>
+                                <div class="dropdown-item" data-value="emma">Emma Wilson</div>
+                                <div class="dropdown-item" data-value="alex">Alex Kumar</div>
+                                <div class="dropdown-item" data-value="lisa">Lisa Park</div>
+                            </div>
+                        </div>
+                        <div class="filter-dropdown">
+                            <button class="filter-btn" id="dateFilter">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <span>Last 30 days</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu" id="dateDropdown">
+                                <div class="dropdown-item" data-value="7">Last 7 days</div>
+                                <div class="dropdown-item active" data-value="30">Last 30 days</div>
+                                <div class="dropdown-item" data-value="90">Last 90 days</div>
+                                <div class="dropdown-item" data-value="365">This Year</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-profile">
+                        <div class="avatar">EM</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content" id="dashboardContent">
+                
+                <!-- ============================================ -->
+                <!-- COCKPIT - EXECUTIVE OVERVIEW -->
+                <!-- ============================================ -->
+
+                <div class="page-content active" id="page-cockpit">
+                    <!-- Welcome Header -->
+                    <div class="cockpit-header">
+                        <div class="cockpit-welcome">
+                            <h1>Good morning, Engineering Manager 👋</h1>
+                            <p>Here's what's happening with your team <strong>today</strong></p>
+                        </div>
+                        <div class="cockpit-date">
+                            <span class="date-display">Tuesday, Feb 3, 2026</span>
+                            <span class="last-updated">Last updated: 5 mins ago</span>
+                        </div>
+                    </div>
+
+                    <!-- STATUS AT A GLANCE - Traffic Light System -->
+                    <section class="status-glance-section">
+                        <div class="status-cards">
+                            <div class="status-card" onclick="navigateToPage('process-flow')">
+                                <div class="status-icon-wrapper delivery">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                                <div class="status-content">
+                                    <span class="status-label">Delivery Speed</span>
+                                    <span class="status-value good">On Track</span>
+                                    <span class="status-detail">Shipping in <strong>2.4 hours</strong> avg</span>
+                                </div>
+                                <div class="status-indicator good"></div>
+                            </div>
+                            <div class="status-card" onclick="navigateToPage('alerts')">
+                                <div class="status-icon-wrapper quality warning">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                                        <path d="M9 12l2 2 4-4"/>
+                                    </svg>
+                                </div>
+                                <div class="status-content">
+                                    <span class="status-label">Release Quality</span>
+                                    <span class="status-value warning">Needs Attention</span>
+                                    <span class="status-detail"><strong>8.2%</strong> of releases failing</span>
+                                </div>
+                                <div class="status-indicator warning"></div>
+                            </div>
+                            <div class="status-card" onclick="navigateToPage('team-pulse')">
+                                <div class="status-icon-wrapper team">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                                        <circle cx="9" cy="7" r="4"/>
+                                        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                                    </svg>
+                                </div>
+                                <div class="status-content">
+                                    <span class="status-label">Team Health</span>
+                                    <span class="status-value moderate">2 At Risk</span>
+                                    <span class="status-detail">Mike & Lisa showing burnout signs</span>
+                                </div>
+                                <div class="status-indicator warning"></div>
+                            </div>
+                            <div class="status-card" onclick="navigateToPage('goals')">
+                                <div class="status-icon-wrapper goals">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <circle cx="12" cy="12" r="6"/>
+                                        <circle cx="12" cy="12" r="2"/>
+                                    </svg>
+                                </div>
+                                <div class="status-content">
+                                    <span class="status-label">Sprint Goals</span>
+                                    <span class="status-value good">87% Complete</span>
+                                    <span class="status-detail"><strong>3 days</strong> left in sprint</span>
+                                </div>
+                                <div class="status-indicator good"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- KEY NUMBERS - What Happened This Week -->
+                    <section class="key-numbers-section">
+                        <h2 class="section-title">This Week's Numbers</h2>
+                        <div class="key-numbers-grid">
+                            <div class="key-number-card" onclick="navigateToPage('investment')">
+                                <div class="key-number">28</div>
+                                <div class="key-label">Deployments</div>
+                                <div class="key-trend positive">↑ 12% vs last week</div>
+                            </div>
+                            <div class="key-number-card" onclick="navigateToPage('work-breakdown')">
+                                <div class="key-number">12</div>
+                                <div class="key-label">Features Shipped</div>
+                                <div class="key-trend positive">↑ 3 more than planned</div>
+                            </div>
+                            <div class="key-number-card" onclick="navigateToPage('work-breakdown')">
+                                <div class="key-number">34</div>
+                                <div class="key-label">Bugs Fixed</div>
+                                <div class="key-trend positive">Bug backlog down 18%</div>
+                            </div>
+                            <div class="key-number-card" onclick="navigateToPage('alerts')">
+                                <div class="key-number">2</div>
+                                <div class="key-label">Incidents</div>
+                                <div class="key-trend neutral">Both resolved &lt;1hr</div>
+                            </div>
+                            <div class="key-number-card" onclick="navigateToPage('pull-requests')">
+                                <div class="key-number">156</div>
+                                <div class="key-label">PRs Merged</div>
+                                <div class="key-trend positive">Avg review: 3.2 hrs</div>
+                            </div>
+                            <div class="key-number-card" onclick="navigateToPage('coding-breakdown')">
+                                <div class="key-number">68%</div>
+                                <div class="key-label">Focus Time</div>
+                                <div class="key-trend neutral">4.2 hrs deep work/day</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Action Required & Shoutouts Row -->
+                    <section class="cockpit-actions-row">
+                        <!-- Needs Attention -->
+                        <div class="action-panel attention">
+                            <div class="panel-header">
+                                <div class="panel-title">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path>
+                                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                    </svg>
+                                    <span>Needs Your Attention</span>
+                                </div>
+                                <span class="panel-count">4 items</span>
+                            </div>
+                            <div class="action-list">
+                                <div class="action-item critical" onclick="navigateToPage('alerts')">
+                                    <div class="action-indicator critical"></div>
+                                    <div class="action-content">
+                                        <span class="action-title">High Change Failure Rate</span>
+                                        <span class="action-meta">Mobile Team • 18.2% (threshold: 15%)</span>
+                                    </div>
+                                    <span class="framework-tag-sm dora">DORA</span>
+                                </div>
+                                <div class="action-item critical" onclick="navigateToPage('team-pulse')">
+                                    <div class="action-indicator critical"></div>
+                                    <div class="action-content">
+                                        <span class="action-title">Burnout Risk Detected</span>
+                                        <span class="action-meta">Mike Chen, Lisa Park • Backend Team</span>
+                                    </div>
+                                    <span class="framework-tag-sm space">SPACE</span>
+                                </div>
+                                <div class="action-item warning" onclick="navigateToPage('process-flow')">
+                                    <div class="action-indicator warning"></div>
+                                    <div class="action-content">
+                                        <span class="action-title">Code Review Bottleneck</span>
+                                        <span class="action-meta">38 PRs waiting • Avg wait: 52 min</span>
+                                    </div>
+                                    <span class="framework-tag-sm dora">DORA</span>
+                                </div>
+                                <div class="action-item warning" onclick="navigateToPage('pull-requests')">
+                                    <div class="action-indicator warning"></div>
+                                    <div class="action-content">
+                                        <span class="action-title">Low Review Participation</span>
+                                        <span class="action-meta">3 members below review quota</span>
+                                    </div>
+                                    <span class="framework-tag-sm space">SPACE</span>
+                                </div>
+                            </div>
+                            <button class="panel-cta" onclick="navigateToPage('alerts')">View All Alerts →</button>
+                        </div>
+
+                        <!-- Shoutouts -->
+                        <div class="action-panel shoutouts">
+                            <div class="panel-header">
+                                <div class="panel-title">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                    </svg>
+                                    <span>Shoutouts & Wins 🎉</span>
+                                </div>
+                                <span class="panel-count">This week</span>
+                            </div>
+                            <div class="shoutout-list">
+                                <div class="shoutout-item" onclick="navigateToPage('dev360')">
+                                    <img src="https://i.pravatar.cc/40?img=5" class="shoutout-avatar">
+                                    <div class="shoutout-content">
+                                        <span class="shoutout-title">Alex Kumar hit Elite status!</span>
+                                        <span class="shoutout-meta">8.4 deploys/day • DevOps Team</span>
+                                    </div>
+                                    <span class="shoutout-badge">🏆</span>
+                                </div>
+                                <div class="shoutout-item" onclick="navigateToPage('team')">
+                                    <div class="shoutout-team-icon">P</div>
+                                    <div class="shoutout-content">
+                                        <span class="shoutout-title">Platform Team: Zero incidents!</span>
+                                        <span class="shoutout-meta">14 days incident-free streak</span>
+                                    </div>
+                                    <span class="shoutout-badge">🛡️</span>
+                                </div>
+                                <div class="shoutout-item" onclick="navigateToPage('dev360')">
+                                    <img src="https://i.pravatar.cc/40?img=1" class="shoutout-avatar">
+                                    <div class="shoutout-content">
+                                        <span class="shoutout-title">John Smith: Top Reviewer</span>
+                                        <span class="shoutout-meta">45 quality reviews this month</span>
+                                    </div>
+                                    <span class="shoutout-badge">⭐</span>
+                                </div>
+                                <div class="shoutout-item" onclick="navigateToPage('goals')">
+                                    <div class="shoutout-team-icon goal">🎯</div>
+                                    <div class="shoutout-content">
+                                        <span class="shoutout-title">Q1 Goal: MTTR achieved!</span>
+                                        <span class="shoutout-meta">42 min avg (target: &lt;1 hour)</span>
+                                    </div>
+                                    <span class="shoutout-badge">✅</span>
+                                </div>
+                            </div>
+                            <button class="panel-cta success" onclick="navigateToPage('performance-insights')">View All Achievements →</button>
+                        </div>
+                    </section>
+
+                    <!-- DELIVERY PIPELINE - How Fast Are We Shipping? -->
+                    <section class="cockpit-metrics-section">
+                        <div class="metrics-panel">
+                            <div class="panel-header">
+                                <div class="panel-title">
+                                    <span>🚀 How Fast Are We Shipping?</span>
+                                </div>
+                                <button class="panel-link" onclick="navigateToPage('process-flow')">See Pipeline →</button>
+                            </div>
+                            <div class="pipeline-metrics-grid">
+                                <div class="pipeline-metric" onclick="navigateToPage('investment')">
+                                    <div class="pipeline-icon">📦</div>
+                                    <div class="pipeline-content">
+                                        <span class="pipeline-question">How often do we deploy?</span>
+                                        <span class="pipeline-answer">4.2 times per day</span>
+                                        <span class="pipeline-context good">↑ 12% better than last month</span>
+                                    </div>
+                                </div>
+                                <div class="pipeline-metric" onclick="navigateToPage('process-flow')">
+                                    <div class="pipeline-icon">⏱️</div>
+                                    <div class="pipeline-content">
+                                        <span class="pipeline-question">How fast do changes go live?</span>
+                                        <span class="pipeline-answer">2.4 hours on average</span>
+                                        <span class="pipeline-context good">↓ 18% faster than before</span>
+                                    </div>
+                                </div>
+                                <div class="pipeline-metric warning" onclick="navigateToPage('alerts')">
+                                    <div class="pipeline-icon">⚠️</div>
+                                    <div class="pipeline-content">
+                                        <span class="pipeline-question">How many releases break?</span>
+                                        <span class="pipeline-answer">8.2% fail rate</span>
+                                        <span class="pipeline-context warning">↑ Mobile team at 18% - needs fix</span>
+                                    </div>
+                                </div>
+                                <div class="pipeline-metric" onclick="navigateToPage('alerts')">
+                                    <div class="pipeline-icon">🔧</div>
+                                    <div class="pipeline-content">
+                                        <span class="pipeline-question">How fast do we fix issues?</span>
+                                        <span class="pipeline-answer">42 minutes average</span>
+                                        <span class="pipeline-context good">✓ Meeting elite target</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- TEAM WELLNESS - How Is My Team Doing? -->
+                    <section class="cockpit-metrics-section">
+                        <div class="metrics-panel">
+                            <div class="panel-header">
+                                <div class="panel-title">
+                                    <span>👥 How Is My Team Doing?</span>
+                                </div>
+                                <button class="panel-link" onclick="navigateToPage('team-pulse')">See Team Health →</button>
+                            </div>
+                            <div class="wellness-grid">
+                                <div class="wellness-card" onclick="navigateToPage('team-pulse')">
+                                    <div class="wellness-emoji">😊</div>
+                                    <div class="wellness-content">
+                                        <span class="wellness-question">Are they happy?</span>
+                                        <span class="wellness-answer good">8.4/10 satisfaction</span>
+                                        <span class="wellness-detail">Most are engaged & motivated</span>
+                                    </div>
+                                </div>
+                                <div class="wellness-card warning" onclick="navigateToPage('team-pulse')">
+                                    <div class="wellness-emoji">😓</div>
+                                    <div class="wellness-content">
+                                        <span class="wellness-question">Anyone at burnout risk?</span>
+                                        <span class="wellness-answer warning">2 team members</span>
+                                        <span class="wellness-detail">Mike Chen & Lisa Park - Backend</span>
+                                    </div>
+                                </div>
+                                <div class="wellness-card" onclick="navigateToPage('coding-breakdown')">
+                                    <div class="wellness-emoji">🎯</div>
+                                    <div class="wellness-content">
+                                        <span class="wellness-question">Getting enough focus time?</span>
+                                        <span class="wellness-answer good">4.2 hrs/day deep work</span>
+                                        <span class="wellness-detail">Healthy balance of meetings vs coding</span>
+                                    </div>
+                                </div>
+                                <div class="wellness-card moderate" onclick="navigateToPage('pull-requests')">
+                                    <div class="wellness-emoji">🤝</div>
+                                    <div class="wellness-content">
+                                        <span class="wellness-question">Working well together?</span>
+                                        <span class="wellness-answer moderate">PR reviews taking 3.2 hrs</span>
+                                        <span class="wellness-detail">Could improve review turnaround</span>
+                                    </div>
+                                </div>
+                                <div class="wellness-card" onclick="navigateToPage('work-breakdown')">
+                                    <div class="wellness-emoji">⚖️</div>
+                                    <div class="wellness-content">
+                                        <span class="wellness-question">Workload balanced?</span>
+                                        <span class="wellness-answer good">Mostly even</span>
+                                        <span class="wellness-detail">Backend team slightly overloaded</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- BOTTLENECKS - Where Are We Stuck? -->
+                    <section class="cockpit-metrics-section">
+                        <div class="metrics-panel bottleneck-panel">
+                            <div class="panel-header">
+                                <div class="panel-title">
+                                    <span>🚧 Where Are We Stuck?</span>
+                                </div>
+                                <button class="panel-link" onclick="navigateToPage('process-flow')">Analyze Flow →</button>
+                            </div>
+                            <div class="bottleneck-list">
+                                <div class="bottleneck-item critical" onclick="navigateToPage('pull-requests')">
+                                    <div class="bottleneck-rank">1</div>
+                                    <div class="bottleneck-content">
+                                        <span class="bottleneck-title">Code Review Queue</span>
+                                        <span class="bottleneck-detail">38 PRs waiting • Average wait: 52 minutes</span>
+                                    </div>
+                                    <div class="bottleneck-impact">
+                                        <span class="impact-label">Impact</span>
+                                        <span class="impact-value high">High</span>
+                                    </div>
+                                </div>
+                                <div class="bottleneck-item warning" onclick="navigateToPage('alerts')">
+                                    <div class="bottleneck-rank">2</div>
+                                    <div class="bottleneck-content">
+                                        <span class="bottleneck-title">Mobile Team Releases</span>
+                                        <span class="bottleneck-detail">18% failure rate • 3 rollbacks this week</span>
+                                    </div>
+                                    <div class="bottleneck-impact">
+                                        <span class="impact-label">Impact</span>
+                                        <span class="impact-value medium">Medium</span>
+                                    </div>
+                                </div>
+                                <div class="bottleneck-item" onclick="navigateToPage('process-flow')">
+                                    <div class="bottleneck-rank">3</div>
+                                    <div class="bottleneck-content">
+                                        <span class="bottleneck-title">Staging Environment</span>
+                                        <span class="bottleneck-detail">Resource contention during peak hours</span>
+                                    </div>
+                                    <div class="bottleneck-impact">
+                                        <span class="impact-label">Impact</span>
+                                        <span class="impact-value low">Low</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Team Overview -->
+                    <section class="cockpit-teams-section">
+                        <div class="panel-header">
+                            <div class="panel-title">
+                                <span>Team Performance at a Glance</span>
+                            </div>
+                            <button class="panel-link" onclick="navigateToPage('team')">View Team Hierarchy →</button>
+                        </div>
+                        <div class="team-performance-grid">
+                            <div class="team-perf-card" onclick="navigateToPage('performance-insights')">
+                                <div class="team-perf-header">
+                                    <div class="team-perf-avatar" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">P</div>
+                                    <div class="team-perf-info">
+                                        <span class="team-perf-name">Platform Team</span>
+                                        <span class="team-perf-lead">Lead: John Smith</span>
+                                    </div>
+                                    <span class="status-badge elite">Elite</span>
+                                </div>
+                                <div class="team-perf-metrics">
+                                    <div class="team-perf-metric">
+                                        <span class="perf-metric-label">Deploy</span>
+                                        <span class="perf-metric-value">6.2/d</span>
+                                    </div>
+                                    <div class="team-perf-metric">
+                                        <span class="perf-metric-label">Lead Time</span>
+                                        <span class="perf-metric-value">1.2h</span>
+                                    </div>
+                                    <div class="team-perf-metric">
+                                        <span class="perf-metric-label">Satisfaction</span>
+                                        <span class="perf-metric-value">8.9</span>
+                                    </div>
+                                </div>
+                                <div class="team-perf-bar">
+                                    <div class="team-bar-fill elite" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div class="team-perf-card" onclick="navigateToPage('performance-insights')">
+                                <div class="team-perf-header">
+                                    <div class="team-perf-avatar" style="background: linear-gradient(135deg, #10b981, #059669);">F</div>
+                                    <div class="team-perf-info">
+                                        <span class="team-perf-name">Frontend Team</span>
+                                        <span class="team-perf-lead">Lead: Sarah Johnson</span>
+                                    </div>
+                                    <span class="status-badge high">High</span>
+                                </div>
+                                <div class="team-perf-metrics">
+                                    <div class="team-perf-metric">
+                                        <span class="perf-metric-label">Deploy</span>
+                                        <span class="perf-metric-value">4.8/d</span>
+                                    </div>
+                                    <div class="team-perf-metric">
+                                        <span class="perf-metric-label">Lead Time</span>
+                                        <span class="perf-metric-value">2.8h</span>
+                                    </div>
+                                    <div class="team-perf-metric">
+                                        <span class="perf-metric-label">Satisfaction</span>
+                                        <span class="perf-metric-value">8.2</span>
+                                    </div>
+                                </div>
+                                <div class="team-perf-bar">
+                                    <div class="team-bar-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="team-perf-card" onclick="navigateToPage('performance-insights')">
+                                <div class="team-perf-header">
+                                    <div class="team-perf-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">B</div>
+                                    <div class="team-perf-info">
+                                        <span class="team-perf-name">Backend Team</span>
+                                        <span class="team-perf-lead">Lead: Mike Chen</span>
+                                    </div>
+                                    <span class="status-badge medium">Medium</span>
+                                </div>
+                                <div class="team-perf-metrics">
+                                    <div class="team-perf-metric">
+                                        <span class="perf-metric-label">Deploy</span>
+                                        <span class="perf-metric-value">3.5/d</span>
+                                    </div>
+                                    <div class="team-perf-metric">
+                                        <span class="perf-metric-label">Lead Time</span>
+                                        <span class="perf-metric-value">3.5h</span>
+                                    </div>
+                                    <div class="team-perf-metric">
+                                        <span class="perf-metric-label">Satisfaction</span>
+                                        <span class="perf-metric-value warning">7.4</span>
+                                    </div>
+                                </div>
+                                <div class="team-perf-bar">
+                                    <div class="team-bar-fill warning" style="width: 74%"></div>
+                                </div>
+                            </div>
+                            <div class="team-perf-card" onclick="navigateToPage('performance-insights')">
+                                <div class="team-perf-header">
+                                    <div class="team-perf-avatar" style="background: linear-gradient(135deg, #ec4899, #db2777);">M</div>
+                                    <div class="team-perf-info">
+                                        <span class="team-perf-name">Mobile Team</span>
+                                        <span class="team-perf-lead">Lead: Emma Wilson</span>
+                                    </div>
+                                    <span class="status-badge low">Low</span>
+                                </div>
+                                <div class="team-perf-metrics">
+                                    <div class="team-perf-metric">
+                                        <span class="perf-metric-label">Deploy</span>
+                                        <span class="perf-metric-value">2.1/d</span>
+                                    </div>
+                                    <div class="team-perf-metric">
+                                        <span class="perf-metric-label">Lead Time</span>
+                                        <span class="perf-metric-value">5.2h</span>
+                                    </div>
+                                    <div class="team-perf-metric">
+                                        <span class="perf-metric-label">Satisfaction</span>
+                                        <span class="perf-metric-value">7.6</span>
+                                    </div>
+                                </div>
+                                <div class="team-perf-bar">
+                                    <div class="team-bar-fill danger" style="width: 58%"></div>
+                                </div>
+                            </div>
+                            <div class="team-perf-card" onclick="navigateToPage('performance-insights')">
+                                <div class="team-perf-header">
+                                    <div class="team-perf-avatar" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">D</div>
+                                    <div class="team-perf-info">
+                                        <span class="team-perf-name">DevOps Team</span>
+                                        <span class="team-perf-lead">Lead: Alex Kumar</span>
+                                    </div>
+                                    <span class="status-badge elite">Elite</span>
+                                </div>
+                                <div class="team-perf-metrics">
+                                    <div class="team-perf-metric">
+                                        <span class="perf-metric-label">Deploy</span>
+                                        <span class="perf-metric-value">8.4/d</span>
+                                    </div>
+                                    <div class="team-perf-metric">
+                                        <span class="perf-metric-label">Lead Time</span>
+                                        <span class="perf-metric-value">0.8h</span>
+                                    </div>
+                                    <div class="team-perf-metric">
+                                        <span class="perf-metric-label">Satisfaction</span>
+                                        <span class="perf-metric-value">9.1</span>
+                                    </div>
+                                </div>
+                                <div class="team-perf-bar">
+                                    <div class="team-bar-fill elite" style="width: 94%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- TEAM - HIERARCHY MIND MAP -->
+                <!-- ============================================ -->
+
+                <div class="page-content" id="page-team">
+                    <div class="page-description">
+                        <p>Visualize your entire team structure, hierarchy, and project assignments. See who reports to whom, shared resources, and cross-team collaborations.</p>
+                    </div>
+
+                    <!-- Organization Summary -->
+                    <section class="org-summary">
+                        <div class="org-stat">
+                            <span class="org-stat-value">32</span>
+                            <span class="org-stat-label">Total Members</span>
+                        </div>
+                        <div class="org-stat">
+                            <span class="org-stat-value">5</span>
+                            <span class="org-stat-label">Teams</span>
+                        </div>
+                        <div class="org-stat">
+                            <span class="org-stat-value">5</span>
+                            <span class="org-stat-label">Tech Leads</span>
+                        </div>
+                        <div class="org-stat">
+                            <span class="org-stat-value">8</span>
+                            <span class="org-stat-label">Active Projects</span>
+                        </div>
+                        <div class="org-stat">
+                            <span class="org-stat-value">3</span>
+                            <span class="org-stat-label">Shared Resources</span>
+                        </div>
+                    </section>
+
+                    <!-- Team Hierarchy Mind Map -->
+                    <section class="team-mindmap-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Organization Hierarchy</h2>
+                            <div class="mindmap-controls">
+                                <button class="control-btn active" data-view="tree">Tree View</button>
+                                <button class="control-btn" data-view="org">Org Chart</button>
+                            </div>
+                        </div>
+                        
+                        <div class="mindmap-container" id="teamMindmap">
+                            <!-- Engineering Manager (Root) -->
+                            <div class="mindmap-root">
+                                <div class="mindmap-node em-node">
+                                    <div class="node-avatar em">
+                                        <img src="https://i.pravatar.cc/60?img=68" alt="EM">
+                                    </div>
+                                    <div class="node-info">
+                                        <span class="node-name">David Anderson</span>
+                                        <span class="node-role">Engineering Manager</span>
+                                        <span class="node-reports">5 Direct Reports • 32 Total</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Teams Container -->
+                                <div class="mindmap-branches">
+                                    <!-- Platform Team -->
+                                    <div class="mindmap-branch">
+                                        <div class="branch-connector"></div>
+                                        <div class="mindmap-team">
+                                            <div class="mindmap-node lead-node platform">
+                                                <div class="node-avatar">
+                                                    <img src="https://i.pravatar.cc/48?img=1" alt="Lead">
+                                                </div>
+                                                <div class="node-info">
+                                                    <span class="node-name">John Smith</span>
+                                                    <span class="node-role">Tech Lead • Platform</span>
+                                                    <div class="node-badges">
+                                                        <span class="node-badge elite">Elite</span>
+                                                        <span class="node-badge members">8 members</span>
+                                                    </div>
+                                                </div>
+                                                <button class="node-expand" data-team="platform">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="team-members" id="platform-members">
+                                                <div class="member-connector"></div>
+                                                <div class="members-grid">
+                                                    <div class="member-node">
+                                                        <img src="https://i.pravatar.cc/36?img=11" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Alice Chen</span>
+                                                            <span class="member-title">Sr. Engineer</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag">Auth Service</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="member-node">
+                                                        <img src="https://i.pravatar.cc/36?img=12" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Bob Wilson</span>
+                                                            <span class="member-title">Sr. Engineer</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag">API Gateway</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="member-node">
+                                                        <img src="https://i.pravatar.cc/36?img=13" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Carol Davis</span>
+                                                            <span class="member-title">Engineer</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag">Auth Service</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="member-node">
+                                                        <img src="https://i.pravatar.cc/36?img=14" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Dan Miller</span>
+                                                            <span class="member-title">Engineer</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag">Core Infra</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="member-node shared">
+                                                        <img src="https://i.pravatar.cc/36?img=15" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Eva Martinez</span>
+                                                            <span class="member-title">Shared Resource</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag shared">Platform</span>
+                                                            <span class="project-tag shared">DevOps</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Frontend Team -->
+                                    <div class="mindmap-branch">
+                                        <div class="branch-connector"></div>
+                                        <div class="mindmap-team">
+                                            <div class="mindmap-node lead-node frontend">
+                                                <div class="node-avatar">
+                                                    <img src="https://i.pravatar.cc/48?img=2" alt="Lead">
+                                                </div>
+                                                <div class="node-info">
+                                                    <span class="node-name">Sarah Johnson</span>
+                                                    <span class="node-role">Tech Lead • Frontend</span>
+                                                    <div class="node-badges">
+                                                        <span class="node-badge high">High</span>
+                                                        <span class="node-badge members">6 members</span>
+                                                    </div>
+                                                </div>
+                                                <button class="node-expand" data-team="frontend">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="team-members collapsed" id="frontend-members">
+                                                <div class="member-connector"></div>
+                                                <div class="members-grid">
+                                                    <div class="member-node">
+                                                        <img src="https://i.pravatar.cc/36?img=21" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Frank Lee</span>
+                                                            <span class="member-title">Sr. Engineer</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag">Dashboard</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="member-node">
+                                                        <img src="https://i.pravatar.cc/36?img=22" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Grace Kim</span>
+                                                            <span class="member-title">Engineer</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag">UI Components</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="member-node">
+                                                        <img src="https://i.pravatar.cc/36?img=23" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Henry Park</span>
+                                                            <span class="member-title">Engineer</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag">Analytics</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Backend Team -->
+                                    <div class="mindmap-branch">
+                                        <div class="branch-connector"></div>
+                                        <div class="mindmap-team">
+                                            <div class="mindmap-node lead-node backend">
+                                                <div class="node-avatar">
+                                                    <img src="https://i.pravatar.cc/48?img=3" alt="Lead">
+                                                </div>
+                                                <div class="node-info">
+                                                    <span class="node-name">Mike Chen</span>
+                                                    <span class="node-role">Tech Lead • Backend</span>
+                                                    <div class="node-badges">
+                                                        <span class="node-badge medium">Medium</span>
+                                                        <span class="node-badge members">7 members</span>
+                                                    </div>
+                                                </div>
+                                                <button class="node-expand" data-team="backend">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="team-members collapsed" id="backend-members">
+                                                <div class="member-connector"></div>
+                                                <div class="members-grid">
+                                                    <div class="member-node at-risk">
+                                                        <img src="https://i.pravatar.cc/36?img=6" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Lisa Park</span>
+                                                            <span class="member-title">Sr. Engineer</span>
+                                                            <span class="risk-indicator">⚠️ Burnout Risk</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag">Orders API</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="member-node">
+                                                        <img src="https://i.pravatar.cc/36?img=31" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Ian Scott</span>
+                                                            <span class="member-title">Engineer</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag">Users API</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="member-node">
+                                                        <img src="https://i.pravatar.cc/36?img=32" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Julia Adams</span>
+                                                            <span class="member-title">Engineer</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag">Payments</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Mobile Team -->
+                                    <div class="mindmap-branch">
+                                        <div class="branch-connector"></div>
+                                        <div class="mindmap-team">
+                                            <div class="mindmap-node lead-node mobile">
+                                                <div class="node-avatar">
+                                                    <img src="https://i.pravatar.cc/48?img=4" alt="Lead">
+                                                </div>
+                                                <div class="node-info">
+                                                    <span class="node-name">Emma Wilson</span>
+                                                    <span class="node-role">Tech Lead • Mobile</span>
+                                                    <div class="node-badges">
+                                                        <span class="node-badge low">Low</span>
+                                                        <span class="node-badge members">5 members</span>
+                                                    </div>
+                                                </div>
+                                                <button class="node-expand" data-team="mobile">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="team-members collapsed" id="mobile-members">
+                                                <div class="member-connector"></div>
+                                                <div class="members-grid">
+                                                    <div class="member-node">
+                                                        <img src="https://i.pravatar.cc/36?img=41" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Kevin Brown</span>
+                                                            <span class="member-title">iOS Engineer</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag">iOS App</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="member-node">
+                                                        <img src="https://i.pravatar.cc/36?img=42" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Laura White</span>
+                                                            <span class="member-title">Android Engineer</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag">Android App</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- DevOps Team -->
+                                    <div class="mindmap-branch">
+                                        <div class="branch-connector"></div>
+                                        <div class="mindmap-team">
+                                            <div class="mindmap-node lead-node devops">
+                                                <div class="node-avatar">
+                                                    <img src="https://i.pravatar.cc/48?img=5" alt="Lead">
+                                                </div>
+                                                <div class="node-info">
+                                                    <span class="node-name">Alex Kumar</span>
+                                                    <span class="node-role">Tech Lead • DevOps</span>
+                                                    <div class="node-badges">
+                                                        <span class="node-badge elite">Elite</span>
+                                                        <span class="node-badge members">4 members</span>
+                                                    </div>
+                                                </div>
+                                                <button class="node-expand" data-team="devops">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="team-members collapsed" id="devops-members">
+                                                <div class="member-connector"></div>
+                                                <div class="members-grid">
+                                                    <div class="member-node">
+                                                        <img src="https://i.pravatar.cc/36?img=51" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Mark Taylor</span>
+                                                            <span class="member-title">SRE</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag">CI/CD</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="member-node">
+                                                        <img src="https://i.pravatar.cc/36?img=52" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Nancy Green</span>
+                                                            <span class="member-title">Cloud Engineer</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag">Infrastructure</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="member-node shared">
+                                                        <img src="https://i.pravatar.cc/36?img=15" class="member-avatar">
+                                                        <div class="member-info">
+                                                            <span class="member-name">Eva Martinez</span>
+                                                            <span class="member-title">Shared Resource</span>
+                                                        </div>
+                                                        <div class="member-projects">
+                                                            <span class="project-tag shared">Platform</span>
+                                                            <span class="project-tag shared">DevOps</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Projects Overview -->
+                    <section class="projects-section">
+                        <h2 class="section-title">Active Projects & Assignments</h2>
+                        <div class="projects-grid">
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <div class="project-icon" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">🔐</div>
+                                    <div class="project-info">
+                                        <span class="project-name">Auth Service v2</span>
+                                        <span class="project-status active">Active</span>
+                                    </div>
+                                </div>
+                                <div class="project-teams">
+                                    <span class="team-tag platform">Platform</span>
+                                </div>
+                                <div class="project-members">
+                                    <img src="https://i.pravatar.cc/28?img=11" class="proj-member">
+                                    <img src="https://i.pravatar.cc/28?img=13" class="proj-member">
+                                    <img src="https://i.pravatar.cc/28?img=1" class="proj-member">
+                                    <span class="proj-member-count">3</span>
+                                </div>
+                                <div class="project-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 75%"></div>
+                                    </div>
+                                    <span class="progress-label">75% Complete</span>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <div class="project-icon" style="background: linear-gradient(135deg, #10b981, #059669);">📊</div>
+                                    <div class="project-info">
+                                        <span class="project-name">Analytics Dashboard</span>
+                                        <span class="project-status active">Active</span>
+                                    </div>
+                                </div>
+                                <div class="project-teams">
+                                    <span class="team-tag frontend">Frontend</span>
+                                    <span class="team-tag backend">Backend</span>
+                                </div>
+                                <div class="project-members">
+                                    <img src="https://i.pravatar.cc/28?img=21" class="proj-member">
+                                    <img src="https://i.pravatar.cc/28?img=23" class="proj-member">
+                                    <img src="https://i.pravatar.cc/28?img=31" class="proj-member">
+                                    <span class="proj-member-count">5</span>
+                                </div>
+                                <div class="project-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 45%"></div>
+                                    </div>
+                                    <span class="progress-label">45% Complete</span>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <div class="project-icon" style="background: linear-gradient(135deg, #ec4899, #db2777);">📱</div>
+                                    <div class="project-info">
+                                        <span class="project-name">Mobile App Redesign</span>
+                                        <span class="project-status warning">At Risk</span>
+                                    </div>
+                                </div>
+                                <div class="project-teams">
+                                    <span class="team-tag mobile">Mobile</span>
+                                    <span class="team-tag frontend">Frontend</span>
+                                </div>
+                                <div class="project-members">
+                                    <img src="https://i.pravatar.cc/28?img=41" class="proj-member">
+                                    <img src="https://i.pravatar.cc/28?img=42" class="proj-member">
+                                    <img src="https://i.pravatar.cc/28?img=4" class="proj-member">
+                                    <span class="proj-member-count">4</span>
+                                </div>
+                                <div class="project-progress">
+                                    <div class="progress-bar warning">
+                                        <div class="progress-fill" style="width: 30%"></div>
+                                    </div>
+                                    <span class="progress-label">30% Complete</span>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <div class="project-icon" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">⚙️</div>
+                                    <div class="project-info">
+                                        <span class="project-name">CI/CD Pipeline v3</span>
+                                        <span class="project-status active">Active</span>
+                                    </div>
+                                </div>
+                                <div class="project-teams">
+                                    <span class="team-tag devops">DevOps</span>
+                                    <span class="team-tag platform">Platform</span>
+                                </div>
+                                <div class="project-members">
+                                    <img src="https://i.pravatar.cc/28?img=51" class="proj-member">
+                                    <img src="https://i.pravatar.cc/28?img=52" class="proj-member">
+                                    <img src="https://i.pravatar.cc/28?img=5" class="proj-member">
+                                    <span class="proj-member-count">4</span>
+                                </div>
+                                <div class="project-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill elite" style="width: 90%"></div>
+                                    </div>
+                                    <span class="progress-label">90% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- DELIVERY SECTION PAGES -->
+                <!-- ============================================ -->
+
+                <!-- Investment Page -->
+                <div class="page-content" id="page-investment">
+                    <div class="page-description">
+                        <p>Track resource allocation and time investment across teams, projects, and work types. Understand where engineering effort is being spent.</p>
+                    </div>
+
+                    <!-- Investment Summary Cards -->
+                    <section class="metrics-section">
+                        <h2 class="section-title">Investment Overview</h2>
+                        <div class="metrics-grid four-col">
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Total Engineering Hours</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value">12,480<span class="metric-unit">hrs</span></div>
+                                <div class="metric-trend positive">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    </svg>
+                                    +8% vs last period
+                                </div>
+                                <div class="metric-subtitle">Activity metric tracking total capacity</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Feature Work</span>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="metric-value">58<span class="metric-unit">%</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-bar-fill" style="width: 58%"></div>
+                                </div>
+                                <div class="metric-subtitle">Time spent on new features vs maintenance</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Tech Debt Investment</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value">18<span class="metric-unit">%</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-bar-fill warning" style="width: 18%"></div>
+                                </div>
+                                <div class="metric-subtitle">Efficiency: Time allocated to reduce debt</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Unplanned Work</span>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="metric-value">24<span class="metric-unit">%</span></div>
+                                <div class="metric-trend negative">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    </svg>
+                                    +5% (bugs, incidents)
+                                </div>
+                                <div class="metric-subtitle">Related to Change Failure Rate</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Investment by Category -->
+                    <section class="charts-section">
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h3>Investment Distribution by Category</h3>
+                                <span class="framework-tag space">SPACE - Activity</span>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="investmentPieChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h3>Investment Trends Over Time</h3>
+                                <span class="framework-tag dora">DORA</span>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="investmentTrendChart"></canvas>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Team Investment Table -->
+                    <section class="table-section">
+                        <div class="table-header">
+                            <h3>Investment by Team</h3>
+                            <div class="table-actions">
+                                <button class="btn-secondary">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                    Export
+                                </button>
+                            </div>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Team</th>
+                                        <th>Total Hours</th>
+                                        <th>Feature %</th>
+                                        <th>Maintenance %</th>
+                                        <th>Tech Debt %</th>
+                                        <th>Unplanned %</th>
+                                        <th>Efficiency <span class="framework-tag-sm space">SPACE</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><div class="team-cell"><div class="team-avatar" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">P</div><span>Platform Team</span></div></td>
+                                        <td>2,840 hrs</td>
+                                        <td>65%</td>
+                                        <td>15%</td>
+                                        <td>12%</td>
+                                        <td>8%</td>
+                                        <td><span class="status-badge elite">92%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="team-cell"><div class="team-avatar" style="background: linear-gradient(135deg, #10b981, #059669);">F</div><span>Frontend Team</span></div></td>
+                                        <td>3,120 hrs</td>
+                                        <td>58%</td>
+                                        <td>18%</td>
+                                        <td>14%</td>
+                                        <td>10%</td>
+                                        <td><span class="status-badge high">85%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="team-cell"><div class="team-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">B</div><span>Backend Team</span></div></td>
+                                        <td>2,960 hrs</td>
+                                        <td>52%</td>
+                                        <td>20%</td>
+                                        <td>16%</td>
+                                        <td>12%</td>
+                                        <td><span class="status-badge medium">78%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="team-cell"><div class="team-avatar" style="background: linear-gradient(135deg, #ec4899, #db2777);">M</div><span>Mobile Team</span></div></td>
+                                        <td>1,920 hrs</td>
+                                        <td>62%</td>
+                                        <td>16%</td>
+                                        <td>10%</td>
+                                        <td>12%</td>
+                                        <td><span class="status-badge high">82%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="team-cell"><div class="team-avatar" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">D</div><span>DevOps Team</span></div></td>
+                                        <td>1,640 hrs</td>
+                                        <td>45%</td>
+                                        <td>25%</td>
+                                        <td>22%</td>
+                                        <td>8%</td>
+                                        <td><span class="status-badge elite">94%</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Work Item Breakdown Page -->
+                <div class="page-content" id="page-work-breakdown">
+                    <div class="page-description">
+                        <p>Detailed breakdown of work items by type, status, and team. Track stories, bugs, features, and technical tasks across the delivery pipeline.</p>
+                    </div>
+
+                    <!-- Work Item Summary -->
+                    <section class="metrics-section">
+                        <h2 class="section-title">Work Item Summary</h2>
+                        <div class="metrics-grid four-col">
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Total Work Items</span>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="metric-value">847</div>
+                                <div class="metric-subtitle">Items completed this period</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Avg Lead Time</span>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="metric-value">4.2<span class="metric-unit">days</span></div>
+                                <div class="metric-trend positive">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+                                    </svg>
+                                    -12% faster
+                                </div>
+                                <div class="metric-subtitle">Time from start to done</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Bug Ratio</span>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="metric-value">18<span class="metric-unit">%</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-bar-fill warning" style="width: 18%"></div>
+                                </div>
+                                <div class="metric-subtitle">Related to Change Failure Rate</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Throughput</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value">42<span class="metric-unit">/week</span></div>
+                                <div class="metric-trend positive">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    </svg>
+                                    +15% velocity
+                                </div>
+                                <div class="metric-subtitle">Performance metric</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Work Item Charts -->
+                    <section class="charts-section">
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h3>Work Items by Type</h3>
+                                <span class="framework-tag dora">DORA</span>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="workTypeChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container wide">
+                            <div class="chart-header">
+                                <h3>Work Item Flow (Cumulative)</h3>
+                                <div class="chart-legend">
+                                    <span class="legend-item"><span class="dot" style="background: #6366f1"></span>Created</span>
+                                    <span class="legend-item"><span class="dot" style="background: #10b981"></span>Completed</span>
+                                </div>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="workFlowChart"></canvas>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Work Items Table -->
+                    <section class="table-section">
+                        <div class="table-header">
+                            <h3>Work Items by Team Member</h3>
+                            <div class="table-actions">
+                                <button class="btn-secondary">Export</button>
+                            </div>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Member</th>
+                                        <th>Team</th>
+                                        <th>Completed</th>
+                                        <th>In Progress</th>
+                                        <th>Avg Lead Time <span class="framework-tag-sm dora">DORA</span></th>
+                                        <th>Throughput <span class="framework-tag-sm space">SPACE</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=1" class="member-avatar"><span>John Smith</span></div></td>
+                                        <td>Platform</td>
+                                        <td>48</td>
+                                        <td>5</td>
+                                        <td>3.2 days</td>
+                                        <td><span class="status-badge elite">12/week</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=2" class="member-avatar"><span>Sarah Johnson</span></div></td>
+                                        <td>Frontend</td>
+                                        <td>42</td>
+                                        <td>4</td>
+                                        <td>3.8 days</td>
+                                        <td><span class="status-badge high">10/week</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=3" class="member-avatar"><span>Mike Chen</span></div></td>
+                                        <td>Backend</td>
+                                        <td>38</td>
+                                        <td>6</td>
+                                        <td>4.5 days</td>
+                                        <td><span class="status-badge medium">9/week</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=4" class="member-avatar"><span>Emma Wilson</span></div></td>
+                                        <td>Mobile</td>
+                                        <td>35</td>
+                                        <td>3</td>
+                                        <td>5.1 days</td>
+                                        <td><span class="status-badge medium">8/week</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=5" class="member-avatar"><span>Alex Kumar</span></div></td>
+                                        <td>DevOps</td>
+                                        <td>52</td>
+                                        <td>4</td>
+                                        <td>2.8 days</td>
+                                        <td><span class="status-badge elite">13/week</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Goals Page -->
+                <div class="page-content" id="page-goals">
+                    <div class="page-description">
+                        <p>Track OKRs, sprint goals, and delivery targets. Monitor progress against committed objectives using DORA benchmarks.</p>
+                    </div>
+
+                    <!-- Goals Summary -->
+                    <section class="metrics-section">
+                        <h2 class="section-title">Goals Progress</h2>
+                        <div class="metrics-grid three-col">
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Sprint Goal Completion</span>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="metric-value">87<span class="metric-unit">%</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-bar-fill elite" style="width: 87%"></div>
+                                </div>
+                                <div class="metric-subtitle">Based on Deployment Frequency targets</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Quarterly OKR Progress</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value">72<span class="metric-unit">%</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-bar-fill" style="width: 72%"></div>
+                                </div>
+                                <div class="metric-subtitle">Performance & Efficiency targets</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">DORA Elite Target</span>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="metric-value">3/4<span class="metric-unit">metrics</span></div>
+                                <div class="metric-trend positive">Meeting elite thresholds</div>
+                                <div class="metric-subtitle">DF, LT, MTTR achieved</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Team Goals -->
+                    <section class="goals-section">
+                        <h2 class="section-title">Team Goals</h2>
+                        <div class="goals-grid">
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h4>Deployment Frequency</h4>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="goal-target">Target: 5+ deploys/day</div>
+                                <div class="goal-progress">
+                                    <div class="goal-bar">
+                                        <div class="goal-bar-fill" style="width: 84%"></div>
+                                    </div>
+                                    <span class="goal-value">4.2/day</span>
+                                </div>
+                                <div class="goal-teams">
+                                    <span class="goal-team achieved">DevOps ✓</span>
+                                    <span class="goal-team achieved">Platform ✓</span>
+                                    <span class="goal-team">Frontend</span>
+                                    <span class="goal-team">Backend</span>
+                                </div>
+                            </div>
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h4>Lead Time for Changes</h4>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="goal-target">Target: &lt;1 hour</div>
+                                <div class="goal-progress">
+                                    <div class="goal-bar">
+                                        <div class="goal-bar-fill warning" style="width: 60%"></div>
+                                    </div>
+                                    <span class="goal-value">2.4 hrs</span>
+                                </div>
+                                <div class="goal-teams">
+                                    <span class="goal-team achieved">DevOps ✓</span>
+                                    <span class="goal-team">Platform</span>
+                                    <span class="goal-team">Frontend</span>
+                                    <span class="goal-team">Backend</span>
+                                </div>
+                            </div>
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h4>Change Failure Rate</h4>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="goal-target">Target: &lt;5%</div>
+                                <div class="goal-progress">
+                                    <div class="goal-bar">
+                                        <div class="goal-bar-fill danger" style="width: 40%"></div>
+                                    </div>
+                                    <span class="goal-value">8.2%</span>
+                                </div>
+                                <div class="goal-teams">
+                                    <span class="goal-team achieved">DevOps ✓</span>
+                                    <span class="goal-team achieved">Platform ✓</span>
+                                    <span class="goal-team">Frontend</span>
+                                    <span class="goal-team">Mobile</span>
+                                </div>
+                            </div>
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h4>MTTR</h4>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="goal-target">Target: &lt;1 hour</div>
+                                <div class="goal-progress">
+                                    <div class="goal-bar">
+                                        <div class="goal-bar-fill elite" style="width: 90%"></div>
+                                    </div>
+                                    <span class="goal-value">42 min</span>
+                                </div>
+                                <div class="goal-teams">
+                                    <span class="goal-team achieved">DevOps ✓</span>
+                                    <span class="goal-team achieved">Platform ✓</span>
+                                    <span class="goal-team achieved">Frontend ✓</span>
+                                    <span class="goal-team">Backend</span>
+                                </div>
+                            </div>
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h4>Team Satisfaction</h4>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="goal-target">Target: 8.5+/10</div>
+                                <div class="goal-progress">
+                                    <div class="goal-bar">
+                                        <div class="goal-bar-fill" style="width: 84%"></div>
+                                    </div>
+                                    <span class="goal-value">8.4/10</span>
+                                </div>
+                                <div class="goal-teams">
+                                    <span class="goal-team achieved">Platform ✓</span>
+                                    <span class="goal-team achieved">DevOps ✓</span>
+                                    <span class="goal-team">Frontend</span>
+                                    <span class="goal-team">Mobile</span>
+                                </div>
+                            </div>
+                            <div class="goal-card">
+                                <div class="goal-header">
+                                    <h4>Flow Efficiency</h4>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="goal-target">Target: 85%</div>
+                                <div class="goal-progress">
+                                    <div class="goal-bar">
+                                        <div class="goal-bar-fill elite" style="width: 88%"></div>
+                                    </div>
+                                    <span class="goal-value">88%</span>
+                                </div>
+                                <div class="goal-teams">
+                                    <span class="goal-team achieved">DevOps ✓</span>
+                                    <span class="goal-team achieved">Platform ✓</span>
+                                    <span class="goal-team achieved">Backend ✓</span>
+                                    <span class="goal-team">Mobile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Alerts Page -->
+                <div class="page-content" id="page-alerts">
+                    <div class="page-description">
+                        <p>Real-time alerts when metrics cross thresholds. Stay informed about delivery risks, team health issues, and performance anomalies.</p>
+                    </div>
+
+                    <!-- Alert Summary -->
+                    <section class="metrics-section">
+                        <h2 class="section-title">Alert Summary</h2>
+                        <div class="metrics-grid four-col">
+                            <div class="metric-card alert-critical">
+                                <div class="metric-header">
+                                    <span class="metric-label">Critical</span>
+                                </div>
+                                <div class="metric-value">3</div>
+                                <div class="metric-subtitle">Requires immediate attention</div>
+                            </div>
+                            <div class="metric-card alert-warning">
+                                <div class="metric-header">
+                                    <span class="metric-label">Warning</span>
+                                </div>
+                                <div class="metric-value">7</div>
+                                <div class="metric-subtitle">Monitor closely</div>
+                            </div>
+                            <div class="metric-card alert-info">
+                                <div class="metric-header">
+                                    <span class="metric-label">Info</span>
+                                </div>
+                                <div class="metric-value">12</div>
+                                <div class="metric-subtitle">For your awareness</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Resolved (7d)</span>
+                                </div>
+                                <div class="metric-value">24</div>
+                                <div class="metric-subtitle">Successfully addressed</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Active Alerts -->
+                    <section class="alerts-list">
+                        <h2 class="section-title">Active Alerts</h2>
+                        <div class="alert-item critical">
+                            <div class="alert-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+                            </div>
+                            <div class="alert-content">
+                                <div class="alert-header">
+                                    <h4>High Change Failure Rate - Mobile Team</h4>
+                                    <span class="framework-tag dora">DORA</span>
+                                    <span class="alert-time">2 hours ago</span>
+                                </div>
+                                <p>Change Failure Rate has exceeded 15% threshold (currently 18.2%). 3 failed deployments in the last 24 hours.</p>
+                                <div class="alert-meta">
+                                    <span class="alert-team">Mobile Team</span>
+                                    <span class="alert-metric">CFR: 18.2% (threshold: 15%)</span>
+                                </div>
+                            </div>
+                            <button class="alert-action">Investigate</button>
+                        </div>
+                        <div class="alert-item critical">
+                            <div class="alert-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+                            </div>
+                            <div class="alert-content">
+                                <div class="alert-header">
+                                    <h4>Burnout Risk Detected - Backend Team</h4>
+                                    <span class="framework-tag space">SPACE</span>
+                                    <span class="alert-time">5 hours ago</span>
+                                </div>
+                                <p>High overtime hours combined with declining satisfaction scores. 3 team members showing signs of burnout.</p>
+                                <div class="alert-meta">
+                                    <span class="alert-team">Backend Team</span>
+                                    <span class="alert-metric">Satisfaction: 6.2/10 (was 8.1)</span>
+                                </div>
+                            </div>
+                            <button class="alert-action">Review</button>
+                        </div>
+                        <div class="alert-item warning">
+                            <div class="alert-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path>
+                                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                            </div>
+                            <div class="alert-content">
+                                <div class="alert-header">
+                                    <h4>Lead Time Increasing - Frontend Team</h4>
+                                    <span class="framework-tag dora">DORA</span>
+                                    <span class="alert-time">1 day ago</span>
+                                </div>
+                                <p>Average lead time has increased by 45% over the past week. Review bottlenecks detected in code review stage.</p>
+                                <div class="alert-meta">
+                                    <span class="alert-team">Frontend Team</span>
+                                    <span class="alert-metric">Lead Time: 4.8 hrs (was 3.3 hrs)</span>
+                                </div>
+                            </div>
+                            <button class="alert-action">Analyze</button>
+                        </div>
+                        <div class="alert-item warning">
+                            <div class="alert-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path>
+                                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                            </div>
+                            <div class="alert-content">
+                                <div class="alert-header">
+                                    <h4>Low Collaboration Score</h4>
+                                    <span class="framework-tag space">SPACE</span>
+                                    <span class="alert-time">2 days ago</span>
+                                </div>
+                                <p>Cross-team collaboration has decreased. PR review response times are 2x higher than normal.</p>
+                                <div class="alert-meta">
+                                    <span class="alert-team">All Teams</span>
+                                    <span class="alert-metric">Collaboration: 6.8/10 (was 8.2)</span>
+                                </div>
+                            </div>
+                            <button class="alert-action">Details</button>
+                        </div>
+                        <div class="alert-item info">
+                            <div class="alert-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                </svg>
+                            </div>
+                            <div class="alert-content">
+                                <div class="alert-header">
+                                    <h4>Deployment Frequency Milestone</h4>
+                                    <span class="framework-tag dora">DORA</span>
+                                    <span class="alert-time">3 days ago</span>
+                                </div>
+                                <p>Platform Team has achieved Elite performer status with 8+ deployments per day for 2 consecutive weeks.</p>
+                                <div class="alert-meta">
+                                    <span class="alert-team">Platform Team</span>
+                                    <span class="alert-metric">DF: 8.4/day</span>
+                                </div>
+                            </div>
+                            <button class="alert-action">Celebrate 🎉</button>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- ENGINEERING HEALTH SECTION PAGES -->
+                <!-- ============================================ -->
+
+                <!-- Coding Breakdown Page -->
+                <div class="page-content" id="page-coding-breakdown">
+                    <div class="page-description">
+                        <p>Analyze how developers spend their coding time. Break down activity between new code, reviews, refactoring, and maintenance work.</p>
+                    </div>
+
+                    <!-- Coding Metrics -->
+                    <section class="metrics-section">
+                        <h2 class="section-title">Coding Activity Overview</h2>
+                        <div class="metrics-grid four-col">
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Active Coding Time</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value">6.2<span class="metric-unit">hrs/day</span></div>
+                                <div class="metric-trend positive">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    </svg>
+                                    +0.5 hrs from avg
+                                </div>
+                                <div class="metric-subtitle">Activity: Deep work hours</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Lines Changed</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value">24.8K</div>
+                                <div class="metric-subtitle">Activity: Code volume this period</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Commits</span>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="metric-value">1,247</div>
+                                <div class="metric-trend positive">+18% velocity</div>
+                                <div class="metric-subtitle">Related to Deployment Frequency</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Code Churn</span>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="metric-value">12<span class="metric-unit">%</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-bar-fill warning" style="width: 12%"></div>
+                                </div>
+                                <div class="metric-subtitle">Rework indicator (CFR related)</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Coding Activity Charts -->
+                    <section class="charts-section">
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h3>Coding Activity Distribution</h3>
+                                <span class="framework-tag space">SPACE - Activity</span>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="codingActivityChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container wide">
+                            <div class="chart-header">
+                                <h3>Commit Activity Heatmap (Weekly)</h3>
+                                <span class="framework-tag space">SPACE - Efficiency</span>
+                            </div>
+                            <div class="chart-body heatmap-container">
+                                <div class="heatmap" id="commitHeatmap"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Individual Coding Stats -->
+                    <section class="table-section">
+                        <div class="table-header">
+                            <h3>Individual Coding Breakdown</h3>
+                            <div class="table-actions">
+                                <button class="btn-secondary">Export</button>
+                            </div>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Developer</th>
+                                        <th>Team</th>
+                                        <th>Commits</th>
+                                        <th>Lines +/-</th>
+                                        <th>Active Time <span class="framework-tag-sm space">SPACE</span></th>
+                                        <th>Code Churn <span class="framework-tag-sm dora">DORA</span></th>
+                                        <th>Focus Score <span class="framework-tag-sm space">SPACE</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=1" class="member-avatar"><span>John Smith</span></div></td>
+                                        <td>Platform</td>
+                                        <td>142</td>
+                                        <td>+3,240 / -890</td>
+                                        <td>7.1 hrs/day</td>
+                                        <td><span class="status-badge elite">8%</span></td>
+                                        <td><span class="status-badge elite">94</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=2" class="member-avatar"><span>Sarah Johnson</span></div></td>
+                                        <td>Frontend</td>
+                                        <td>128</td>
+                                        <td>+2,890 / -720</td>
+                                        <td>6.5 hrs/day</td>
+                                        <td><span class="status-badge high">11%</span></td>
+                                        <td><span class="status-badge high">87</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=3" class="member-avatar"><span>Mike Chen</span></div></td>
+                                        <td>Backend</td>
+                                        <td>98</td>
+                                        <td>+2,120 / -1,240</td>
+                                        <td>5.8 hrs/day</td>
+                                        <td><span class="status-badge medium">18%</span></td>
+                                        <td><span class="status-badge medium">72</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=4" class="member-avatar"><span>Emma Wilson</span></div></td>
+                                        <td>Mobile</td>
+                                        <td>86</td>
+                                        <td>+1,980 / -560</td>
+                                        <td>5.4 hrs/day</td>
+                                        <td><span class="status-badge high">14%</span></td>
+                                        <td><span class="status-badge high">81</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=5" class="member-avatar"><span>Alex Kumar</span></div></td>
+                                        <td>DevOps</td>
+                                        <td>165</td>
+                                        <td>+4,120 / -1,890</td>
+                                        <td>6.8 hrs/day</td>
+                                        <td><span class="status-badge elite">9%</span></td>
+                                        <td><span class="status-badge elite">91</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Process Flow Page -->
+                <div class="page-content" id="page-process-flow">
+                    <div class="page-description">
+                        <p>Visualize the delivery pipeline from idea to production. Identify bottlenecks, wait times, and optimize flow efficiency.</p>
+                    </div>
+
+                    <!-- Flow Metrics -->
+                    <section class="metrics-section">
+                        <h2 class="section-title">Process Flow Metrics</h2>
+                        <div class="metrics-grid four-col">
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Total Lead Time</span>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="metric-value">2.4<span class="metric-unit">hrs</span></div>
+                                <div class="metric-trend positive">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+                                    </svg>
+                                    -18% improvement
+                                </div>
+                                <div class="metric-subtitle">Commit to production</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Flow Efficiency</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value">68<span class="metric-unit">%</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-bar-fill" style="width: 68%"></div>
+                                </div>
+                                <div class="metric-subtitle">Active vs wait time ratio</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Cycle Time</span>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="metric-value">4.2<span class="metric-unit">days</span></div>
+                                <div class="metric-subtitle">Work start to completion</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Bottleneck Stage</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value bottleneck">Code Review</div>
+                                <div class="metric-subtitle">Longest wait time stage</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Process Flow Visualization -->
+                    <section class="flow-section">
+                        <h2 class="section-title">Delivery Pipeline <span class="framework-tag dora">DORA - Lead Time</span></h2>
+                        <div class="flow-diagram">
+                            <div class="flow-stage">
+                                <div class="stage-header">
+                                    <span class="stage-name">Development</span>
+                                    <span class="stage-time">45 min</span>
+                                </div>
+                                <div class="stage-bar">
+                                    <div class="stage-fill active" style="width: 100%"></div>
+                                </div>
+                                <div class="stage-items">124 items</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-stage bottleneck-stage">
+                                <div class="stage-header">
+                                    <span class="stage-name">Code Review</span>
+                                    <span class="stage-time">52 min ⚠️</span>
+                                </div>
+                                <div class="stage-bar">
+                                    <div class="stage-fill warning" style="width: 100%"></div>
+                                </div>
+                                <div class="stage-items">38 items waiting</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-stage">
+                                <div class="stage-header">
+                                    <span class="stage-name">Testing</span>
+                                    <span class="stage-time">28 min</span>
+                                </div>
+                                <div class="stage-bar">
+                                    <div class="stage-fill" style="width: 100%"></div>
+                                </div>
+                                <div class="stage-items">18 items</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-stage">
+                                <div class="stage-header">
+                                    <span class="stage-name">Staging</span>
+                                    <span class="stage-time">15 min</span>
+                                </div>
+                                <div class="stage-bar">
+                                    <div class="stage-fill" style="width: 100%"></div>
+                                </div>
+                                <div class="stage-items">12 items</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-stage">
+                                <div class="stage-header">
+                                    <span class="stage-name">Production</span>
+                                    <span class="stage-time">4 min</span>
+                                </div>
+                                <div class="stage-bar">
+                                    <div class="stage-fill elite" style="width: 100%"></div>
+                                </div>
+                                <div class="stage-items">Deployed ✓</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Lead Time Breakdown -->
+                    <section class="charts-section">
+                        <div class="chart-container wide">
+                            <div class="chart-header">
+                                <h3>Lead Time Breakdown by Stage</h3>
+                                <span class="framework-tag dora">DORA - Lead Time</span>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="leadTimeChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h3>Flow Efficiency Trend</h3>
+                                <span class="framework-tag space">SPACE - Efficiency</span>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="flowEfficiencyChart"></canvas>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Pull Requests Page -->
+                <div class="page-content" id="page-pull-requests">
+                    <div class="page-description">
+                        <p>Monitor PR activity, review cycles, and merge patterns. Track collaboration health and identify review bottlenecks.</p>
+                    </div>
+
+                    <!-- PR Metrics -->
+                    <section class="metrics-section">
+                        <h2 class="section-title">Pull Request Metrics</h2>
+                        <div class="metrics-grid four-col">
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">PRs Merged</span>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="metric-value">312</div>
+                                <div class="metric-trend positive">+22% from last period</div>
+                                <div class="metric-subtitle">Contributes to Deploy Frequency</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Avg Review Time</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value">3.2<span class="metric-unit">hrs</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-bar-fill warning" style="width: 64%"></div>
+                                </div>
+                                <div class="metric-subtitle">Collaboration: Time to first review</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Review Iterations</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value">1.8<span class="metric-unit">avg</span></div>
+                                <div class="metric-trend positive">Lower is better</div>
+                                <div class="metric-subtitle">Communication: Back-and-forth cycles</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Merge Success Rate</span>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="metric-value">94<span class="metric-unit">%</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-bar-fill elite" style="width: 94%"></div>
+                                </div>
+                                <div class="metric-subtitle">Related to Change Failure Rate</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- PR Charts -->
+                    <section class="charts-section">
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h3>PR Size Distribution</h3>
+                                <span class="framework-tag space">SPACE - Efficiency</span>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="prSizeChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container wide">
+                            <div class="chart-header">
+                                <h3>Review Activity Trend</h3>
+                                <div class="chart-legend">
+                                    <span class="legend-item"><span class="dot" style="background: #6366f1"></span>Opened</span>
+                                    <span class="legend-item"><span class="dot" style="background: #10b981"></span>Merged</span>
+                                    <span class="legend-item"><span class="dot" style="background: #ef4444"></span>Closed</span>
+                                </div>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="prTrendChart"></canvas>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Top Reviewers -->
+                    <section class="table-section">
+                        <div class="table-header">
+                            <h3>Review Activity by Developer</h3>
+                            <span class="framework-tag space">SPACE - Collaboration</span>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Developer</th>
+                                        <th>PRs Authored</th>
+                                        <th>PRs Reviewed</th>
+                                        <th>Avg Review Time</th>
+                                        <th>Review Quality</th>
+                                        <th>Collaboration Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=1" class="member-avatar"><span>John Smith</span></div></td>
+                                        <td>28</td>
+                                        <td>45</td>
+                                        <td>2.1 hrs</td>
+                                        <td><span class="status-badge elite">Thorough</span></td>
+                                        <td>9.2/10</td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=2" class="member-avatar"><span>Sarah Johnson</span></div></td>
+                                        <td>32</td>
+                                        <td>38</td>
+                                        <td>2.8 hrs</td>
+                                        <td><span class="status-badge high">Good</span></td>
+                                        <td>8.5/10</td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=3" class="member-avatar"><span>Mike Chen</span></div></td>
+                                        <td>24</td>
+                                        <td>22</td>
+                                        <td>4.2 hrs</td>
+                                        <td><span class="status-badge medium">Basic</span></td>
+                                        <td>7.1/10</td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=5" class="member-avatar"><span>Alex Kumar</span></div></td>
+                                        <td>42</td>
+                                        <td>56</td>
+                                        <td>1.8 hrs</td>
+                                        <td><span class="status-badge elite">Excellent</span></td>
+                                        <td>9.6/10</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- PEOPLE & PERFORMANCE SECTION PAGES -->
+                <!-- ============================================ -->
+
+                <!-- Performance Insights Page -->
+                <div class="page-content" id="page-performance-insights">
+                    <div class="page-description">
+                        <p>Comprehensive view of team and individual performance combining DORA delivery metrics with SPACE developer experience insights.</p>
+                    </div>
+
+                    <!-- Performance Overview -->
+                    <section class="metrics-section">
+                        <h2 class="section-title">Performance Overview</h2>
+                        <div class="metrics-grid four-col">
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Overall Performance</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value">8.4<span class="metric-unit">/10</span></div>
+                                <div class="metric-trend positive">+0.6 from last quarter</div>
+                                <div class="metric-subtitle">Performance dimension score</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Delivery Velocity</span>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="metric-value">4.2<span class="metric-unit">deploys/day</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-bar-fill" style="width: 84%"></div>
+                                </div>
+                                <div class="metric-subtitle">Deployment Frequency</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Quality Score</span>
+                                    <span class="framework-tag dora">DORA</span>
+                                </div>
+                                <div class="metric-value">91.8<span class="metric-unit">%</span></div>
+                                <div class="metric-bar">
+                                    <div class="metric-bar-fill elite" style="width: 91.8%"></div>
+                                </div>
+                                <div class="metric-subtitle">100% - Change Failure Rate</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Team Efficiency</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value">86<span class="metric-unit">%</span></div>
+                                <div class="metric-trend positive">+4% improvement</div>
+                                <div class="metric-subtitle">Efficiency & Flow dimension</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Performance Comparison -->
+                    <section class="comparison-section">
+                        <h2 class="section-title">Team Performance Comparison</h2>
+                        <div class="comparison-grid">
+                            <div class="comparison-card">
+                                <div class="comparison-header">
+                                    <div class="team-avatar large" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">P</div>
+                                    <div class="comparison-info">
+                                        <h4>Platform Team</h4>
+                                        <span class="team-size">8 members</span>
+                                    </div>
+                                    <span class="status-badge elite">Elite</span>
+                                </div>
+                                <div class="comparison-metrics">
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Deploy Freq <span class="framework-tag-sm dora">DORA</span></span>
+                                        <span class="comp-value">6.2/day</span>
+                                    </div>
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Lead Time <span class="framework-tag-sm dora">DORA</span></span>
+                                        <span class="comp-value">1.2 hrs</span>
+                                    </div>
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Satisfaction <span class="framework-tag-sm space">SPACE</span></span>
+                                        <span class="comp-value">8.9/10</span>
+                                    </div>
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Efficiency <span class="framework-tag-sm space">SPACE</span></span>
+                                        <span class="comp-value">92%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comparison-card">
+                                <div class="comparison-header">
+                                    <div class="team-avatar large" style="background: linear-gradient(135deg, #10b981, #059669);">F</div>
+                                    <div class="comparison-info">
+                                        <h4>Frontend Team</h4>
+                                        <span class="team-size">6 members</span>
+                                    </div>
+                                    <span class="status-badge high">High</span>
+                                </div>
+                                <div class="comparison-metrics">
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Deploy Freq <span class="framework-tag-sm dora">DORA</span></span>
+                                        <span class="comp-value">4.8/day</span>
+                                    </div>
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Lead Time <span class="framework-tag-sm dora">DORA</span></span>
+                                        <span class="comp-value">2.8 hrs</span>
+                                    </div>
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Satisfaction <span class="framework-tag-sm space">SPACE</span></span>
+                                        <span class="comp-value">8.2/10</span>
+                                    </div>
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Efficiency <span class="framework-tag-sm space">SPACE</span></span>
+                                        <span class="comp-value">85%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comparison-card">
+                                <div class="comparison-header">
+                                    <div class="team-avatar large" style="background: linear-gradient(135deg, #f59e0b, #d97706);">B</div>
+                                    <div class="comparison-info">
+                                        <h4>Backend Team</h4>
+                                        <span class="team-size">7 members</span>
+                                    </div>
+                                    <span class="status-badge medium">Medium</span>
+                                </div>
+                                <div class="comparison-metrics">
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Deploy Freq <span class="framework-tag-sm dora">DORA</span></span>
+                                        <span class="comp-value">3.5/day</span>
+                                    </div>
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Lead Time <span class="framework-tag-sm dora">DORA</span></span>
+                                        <span class="comp-value">3.5 hrs</span>
+                                    </div>
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Satisfaction <span class="framework-tag-sm space">SPACE</span></span>
+                                        <span class="comp-value">7.4/10</span>
+                                    </div>
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Efficiency <span class="framework-tag-sm space">SPACE</span></span>
+                                        <span class="comp-value">78%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comparison-card">
+                                <div class="comparison-header">
+                                    <div class="team-avatar large" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">D</div>
+                                    <div class="comparison-info">
+                                        <h4>DevOps Team</h4>
+                                        <span class="team-size">4 members</span>
+                                    </div>
+                                    <span class="status-badge elite">Elite</span>
+                                </div>
+                                <div class="comparison-metrics">
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Deploy Freq <span class="framework-tag-sm dora">DORA</span></span>
+                                        <span class="comp-value">8.4/day</span>
+                                    </div>
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Lead Time <span class="framework-tag-sm dora">DORA</span></span>
+                                        <span class="comp-value">0.8 hrs</span>
+                                    </div>
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Satisfaction <span class="framework-tag-sm space">SPACE</span></span>
+                                        <span class="comp-value">9.1/10</span>
+                                    </div>
+                                    <div class="comp-metric">
+                                        <span class="comp-label">Efficiency <span class="framework-tag-sm space">SPACE</span></span>
+                                        <span class="comp-value">94%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Performance Chart -->
+                    <section class="charts-section">
+                        <div class="chart-container full-width">
+                            <div class="chart-header">
+                                <h3>Performance Trend (DORA + SPACE Combined)</h3>
+                                <div class="chart-legend">
+                                    <span class="legend-item"><span class="dot" style="background: #6366f1"></span>DORA Score</span>
+                                    <span class="legend-item"><span class="dot" style="background: #10b981"></span>SPACE Score</span>
+                                </div>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="performanceTrendChart"></canvas>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Dev360 Page -->
+                <div class="page-content" id="page-dev360">
+                    <div class="page-description">
+                        <p>360-degree view of individual developer metrics. Understand each team member's strengths, growth areas, and contribution patterns.</p>
+                    </div>
+
+                    <!-- Developer Selector -->
+                    <section class="developer-selector">
+                        <h2 class="section-title">Select Developer</h2>
+                        <div class="developer-cards">
+                            <div class="developer-card selected" data-dev="john">
+                                <img src="https://i.pravatar.cc/48?img=1" class="dev-avatar">
+                                <div class="dev-info">
+                                    <h4>John Smith</h4>
+                                    <span>Platform Team</span>
+                                </div>
+                                <span class="status-badge elite">Elite</span>
+                            </div>
+                            <div class="developer-card" data-dev="sarah">
+                                <img src="https://i.pravatar.cc/48?img=2" class="dev-avatar">
+                                <div class="dev-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <span>Frontend Team</span>
+                                </div>
+                                <span class="status-badge high">High</span>
+                            </div>
+                            <div class="developer-card" data-dev="mike">
+                                <img src="https://i.pravatar.cc/48?img=3" class="dev-avatar">
+                                <div class="dev-info">
+                                    <h4>Mike Chen</h4>
+                                    <span>Backend Team</span>
+                                </div>
+                                <span class="status-badge medium">Medium</span>
+                            </div>
+                            <div class="developer-card" data-dev="emma">
+                                <img src="https://i.pravatar.cc/48?img=4" class="dev-avatar">
+                                <div class="dev-info">
+                                    <h4>Emma Wilson</h4>
+                                    <span>Mobile Team</span>
+                                </div>
+                                <span class="status-badge high">High</span>
+                            </div>
+                            <div class="developer-card" data-dev="alex">
+                                <img src="https://i.pravatar.cc/48?img=5" class="dev-avatar">
+                                <div class="dev-info">
+                                    <h4>Alex Kumar</h4>
+                                    <span>DevOps Team</span>
+                                </div>
+                                <span class="status-badge elite">Elite</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Developer Profile -->
+                    <section class="dev-profile">
+                        <div class="profile-header">
+                            <img src="https://i.pravatar.cc/80?img=1" class="profile-avatar">
+                            <div class="profile-info">
+                                <h2>John Smith</h2>
+                                <p>Senior Software Engineer • Platform Team • 3.2 years</p>
+                            </div>
+                        </div>
+
+                        <!-- SPACE Dimensions -->
+                        <div class="space-dimensions">
+                            <h3>SPACE Metrics Profile <span class="framework-tag space">SPACE</span></h3>
+                            <div class="dimensions-grid">
+                                <div class="dimension-card">
+                                    <div class="dimension-icon satisfaction">😊</div>
+                                    <div class="dimension-content">
+                                        <span class="dimension-label">Satisfaction</span>
+                                        <span class="dimension-value">9.2/10</span>
+                                        <div class="dimension-bar"><div class="dimension-fill" style="width: 92%"></div></div>
+                                    </div>
+                                </div>
+                                <div class="dimension-card">
+                                    <div class="dimension-icon performance">🎯</div>
+                                    <div class="dimension-content">
+                                        <span class="dimension-label">Performance</span>
+                                        <span class="dimension-value">8.8/10</span>
+                                        <div class="dimension-bar"><div class="dimension-fill" style="width: 88%"></div></div>
+                                    </div>
+                                </div>
+                                <div class="dimension-card">
+                                    <div class="dimension-icon activity">⚡</div>
+                                    <div class="dimension-content">
+                                        <span class="dimension-label">Activity</span>
+                                        <span class="dimension-value">9.4/10</span>
+                                        <div class="dimension-bar"><div class="dimension-fill" style="width: 94%"></div></div>
+                                    </div>
+                                </div>
+                                <div class="dimension-card">
+                                    <div class="dimension-icon collaboration">🤝</div>
+                                    <div class="dimension-content">
+                                        <span class="dimension-label">Collaboration</span>
+                                        <span class="dimension-value">8.5/10</span>
+                                        <div class="dimension-bar"><div class="dimension-fill" style="width: 85%"></div></div>
+                                    </div>
+                                </div>
+                                <div class="dimension-card">
+                                    <div class="dimension-icon efficiency">🚀</div>
+                                    <div class="dimension-content">
+                                        <span class="dimension-label">Efficiency</span>
+                                        <span class="dimension-value">9.1/10</span>
+                                        <div class="dimension-bar"><div class="dimension-fill" style="width: 91%"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DORA Contribution -->
+                        <div class="dora-contribution">
+                            <h3>DORA Contributions <span class="framework-tag dora">DORA</span></h3>
+                            <div class="dora-grid">
+                                <div class="dora-card">
+                                    <span class="dora-label">Deployments</span>
+                                    <span class="dora-value">142</span>
+                                    <span class="dora-rank">#2 on team</span>
+                                </div>
+                                <div class="dora-card">
+                                    <span class="dora-label">Avg Lead Time</span>
+                                    <span class="dora-value">1.1 hrs</span>
+                                    <span class="dora-rank">Elite level</span>
+                                </div>
+                                <div class="dora-card">
+                                    <span class="dora-label">Failure Rate</span>
+                                    <span class="dora-value">2.8%</span>
+                                    <span class="dora-rank">Below avg (good)</span>
+                                </div>
+                                <div class="dora-card">
+                                    <span class="dora-label">Incidents Resolved</span>
+                                    <span class="dora-value">8</span>
+                                    <span class="dora-rank">Avg MTTR: 28 min</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Team Pulse Page -->
+                <div class="page-content" id="page-team-pulse">
+                    <div class="page-description">
+                        <p>Real-time team health and morale indicators. Monitor satisfaction, workload balance, and identify burnout risks early.</p>
+                    </div>
+
+                    <!-- Pulse Overview -->
+                    <section class="metrics-section">
+                        <h2 class="section-title">Team Pulse Overview</h2>
+                        <div class="metrics-grid four-col">
+                            <div class="metric-card pulse-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Overall Satisfaction</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value">8.4<span class="metric-unit">/10</span></div>
+                                <div class="pulse-indicator good"></div>
+                                <div class="metric-subtitle">Satisfaction & Well-being</div>
+                            </div>
+                            <div class="metric-card pulse-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Workload Balance</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value">7.6<span class="metric-unit">/10</span></div>
+                                <div class="pulse-indicator moderate"></div>
+                                <div class="metric-subtitle">Activity: Sustainable pace</div>
+                            </div>
+                            <div class="metric-card pulse-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">Burnout Risk</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value">12<span class="metric-unit">%</span></div>
+                                <div class="pulse-indicator good"></div>
+                                <div class="metric-subtitle">3 members at risk</div>
+                            </div>
+                            <div class="metric-card pulse-card">
+                                <div class="metric-header">
+                                    <span class="metric-label">eNPS Score</span>
+                                    <span class="framework-tag space">SPACE</span>
+                                </div>
+                                <div class="metric-value">+42</div>
+                                <div class="pulse-indicator good"></div>
+                                <div class="metric-subtitle">Employee Net Promoter Score</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Burnout Risk Table -->
+                    <section class="table-section">
+                        <div class="table-header">
+                            <h3>Team Member Health Status</h3>
+                            <span class="framework-tag space">SPACE - Satisfaction</span>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Member</th>
+                                        <th>Team</th>
+                                        <th>Satisfaction</th>
+                                        <th>Work Hours/Week</th>
+                                        <th>Focus Time</th>
+                                        <th>Burnout Risk</th>
+                                        <th>Trend</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=1" class="member-avatar"><span>John Smith</span></div></td>
+                                        <td>Platform</td>
+                                        <td>9.2/10</td>
+                                        <td>42 hrs</td>
+                                        <td>6.8 hrs/day</td>
+                                        <td><span class="risk-badge low">Low</span></td>
+                                        <td><span class="trend-badge positive">↑ Improving</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=2" class="member-avatar"><span>Sarah Johnson</span></div></td>
+                                        <td>Frontend</td>
+                                        <td>8.1/10</td>
+                                        <td>45 hrs</td>
+                                        <td>5.2 hrs/day</td>
+                                        <td><span class="risk-badge low">Low</span></td>
+                                        <td><span class="trend-badge stable">→ Stable</span></td>
+                                    </tr>
+                                    <tr class="at-risk">
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=3" class="member-avatar"><span>Mike Chen</span></div></td>
+                                        <td>Backend</td>
+                                        <td>6.4/10</td>
+                                        <td>52 hrs</td>
+                                        <td>4.1 hrs/day</td>
+                                        <td><span class="risk-badge high">High ⚠️</span></td>
+                                        <td><span class="trend-badge negative">↓ Declining</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=4" class="member-avatar"><span>Emma Wilson</span></div></td>
+                                        <td>Mobile</td>
+                                        <td>7.8/10</td>
+                                        <td>44 hrs</td>
+                                        <td>5.6 hrs/day</td>
+                                        <td><span class="risk-badge medium">Medium</span></td>
+                                        <td><span class="trend-badge stable">→ Stable</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=5" class="member-avatar"><span>Alex Kumar</span></div></td>
+                                        <td>DevOps</td>
+                                        <td>9.1/10</td>
+                                        <td>40 hrs</td>
+                                        <td>7.2 hrs/day</td>
+                                        <td><span class="risk-badge low">Low</span></td>
+                                        <td><span class="trend-badge positive">↑ Improving</span></td>
+                                    </tr>
+                                    <tr class="at-risk">
+                                        <td><div class="member-cell"><img src="https://i.pravatar.cc/32?img=6" class="member-avatar"><span>Lisa Park</span></div></td>
+                                        <td>Backend</td>
+                                        <td>5.8/10</td>
+                                        <td>55 hrs</td>
+                                        <td>3.8 hrs/day</td>
+                                        <td><span class="risk-badge high">High ⚠️</span></td>
+                                        <td><span class="trend-badge negative">↓ Declining</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Pulse Charts -->
+                    <section class="charts-section">
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h3>Satisfaction Trend by Team</h3>
+                                <span class="framework-tag space">SPACE</span>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="satisfactionTrendChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-header">
+                                <h3>Work-Life Balance Distribution</h3>
+                                <span class="framework-tag space">SPACE</span>
+                            </div>
+                            <div class="chart-body">
+                                <canvas id="workLifeChart"></canvas>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
