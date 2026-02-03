@@ -2143,42 +2143,47 @@ html, body {
 }
 
 /* ==========================================
-   STATUS AT A GLANCE - Traffic Light System
+   STATUS AT A GLANCE - Traffic Light System V2
    ========================================== */
 
 .status-glance-section {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
-.status-cards {
+.status-cards-enhanced {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
 }
 
-.status-card {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 16px;
+.status-card-v2 {
     background: var(--white);
-    border-radius: 10px;
+    border-radius: 12px;
     border: 1px solid var(--gray-200);
+    padding: 14px;
     cursor: pointer;
     transition: var(--transition);
     position: relative;
     overflow: hidden;
 }
 
-.status-card:hover {
+.status-card-v2:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    border-color: var(--primary-light);
+}
+
+.status-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .status-icon-wrapper {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2186,8 +2191,8 @@ html, body {
 }
 
 .status-icon-wrapper svg {
-    width: 22px;
-    height: 22px;
+    width: 18px;
+    height: 18px;
 }
 
 .status-icon-wrapper.delivery {
@@ -2213,6 +2218,145 @@ html, body {
 .status-icon-wrapper.goals {
     background: linear-gradient(135deg, #fce7f3, #fbcfe8);
     color: #db2777;
+}
+
+.status-badge-v2 {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.status-badge-v2.good {
+    background: var(--success-light);
+    color: #059669;
+}
+
+.status-badge-v2.warning {
+    background: var(--warning-light);
+    color: #d97706;
+}
+
+.status-badge-v2.critical {
+    background: var(--danger-light);
+    color: #dc2626;
+}
+
+.status-main {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.status-title {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 2px;
+}
+
+.status-metric {
+    display: block;
+    font-size: 11px;
+    color: var(--gray-500);
+}
+
+.status-metric strong {
+    color: var(--gray-700);
+}
+
+.status-context {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.context-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+}
+
+.context-row.alert {
+    background: var(--danger-light);
+    padding: 4px 6px;
+    border-radius: 4px;
+    margin: -2px -4px;
+}
+
+.context-label {
+    color: var(--gray-500);
+    font-weight: 500;
+}
+
+.context-value {
+    color: var(--gray-700);
+    font-weight: 600;
+    text-align: right;
+    max-width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.context-value.good {
+    color: var(--success);
+}
+
+.context-value.warning {
+    color: var(--warning);
+}
+
+.context-value.danger {
+    color: var(--danger);
+}
+
+.status-indicator {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+}
+
+.status-indicator.good {
+    background: var(--success);
+}
+
+.status-indicator.warning {
+    background: var(--warning);
+}
+
+.status-indicator.critical {
+    background: var(--danger);
+}
+
+/* Legacy status cards (keeping for other pages) */
+.status-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.status-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid var(--gray-200);
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.status-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
 }
 
 .status-content {
@@ -2260,26 +2404,6 @@ html, body {
 
 .status-detail strong {
     color: var(--gray-800);
-}
-
-.status-indicator {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-}
-
-.status-indicator.good {
-    background: var(--success);
-}
-
-.status-indicator.warning {
-    background: var(--warning);
-}
-
-.status-indicator.critical {
-    background: var(--danger);
 }
 
 /* ==========================================
@@ -2353,6 +2477,236 @@ html, body {
 .key-trend.negative {
     background: var(--danger-light);
     color: #dc2626;
+}
+
+/* ==========================================
+   ENHANCED METRIC CARDS WITH BREAKDOWN
+   ========================================== */
+
+.key-numbers-grid-enhanced {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.metric-card-enhanced {
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    padding: 16px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.metric-card-enhanced:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    border-color: var(--primary-light);
+}
+
+.metric-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.metric-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.metric-icon.deploy {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    color: #2563eb;
+}
+
+.metric-icon.feature {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #059669;
+}
+
+.metric-icon.bug {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #dc2626;
+}
+
+.metric-icon.incident {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #d97706;
+}
+
+.metric-icon.pr {
+    background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+    color: #7c3aed;
+}
+
+.metric-icon.focus {
+    background: linear-gradient(135deg, #cffafe, #a5f3fc);
+    color: #0891b2;
+}
+
+.metric-trend-badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.metric-trend-badge.positive {
+    background: var(--success-light);
+    color: #059669;
+}
+
+.metric-trend-badge.negative {
+    background: var(--danger-light);
+    color: #dc2626;
+}
+
+.metric-trend-badge.neutral {
+    background: var(--gray-100);
+    color: var(--gray-600);
+}
+
+.metric-main {
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.metric-number {
+    display: block;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--gray-800);
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.metric-name {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.metric-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.breakdown-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+}
+
+.breakdown-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.breakdown-team-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.breakdown-project {
+    flex: 1;
+    color: var(--gray-700);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.breakdown-count {
+    font-weight: 700;
+    color: var(--gray-800);
+    background: var(--gray-100);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+}
+
+.breakdown-percent {
+    font-weight: 700;
+    color: var(--gray-800);
+    font-size: 11px;
+}
+
+.breakdown-time {
+    font-weight: 600;
+    color: var(--success);
+    font-size: 10px;
+}
+
+.breakdown-item.muted {
+    opacity: 0.7;
+}
+
+.breakdown-item.muted .breakdown-project {
+    font-style: italic;
+    color: var(--gray-500);
+}
+
+.breakdown-item.team-item.warning .breakdown-percent {
+    color: var(--danger);
+}
+
+/* Incident specific styling */
+.breakdown-item.incident-item {
+    padding: 4px 8px;
+    background: var(--gray-50);
+    border-radius: 6px;
+}
+
+.breakdown-severity {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.breakdown-severity.high {
+    background: var(--danger);
+    color: white;
+}
+
+.breakdown-severity.medium {
+    background: var(--warning);
+    color: white;
+}
+
+.breakdown-severity.low {
+    background: var(--info);
+    color: white;
+}
+
+/* Responsive for enhanced cards */
+@media (max-width: 1400px) {
+    .key-numbers-grid-enhanced {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .key-numbers-grid-enhanced {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ==========================================
@@ -3760,6 +4114,10 @@ html, body {
     .space-quick-grid {
         grid-template-columns: repeat(5, 1fr);
     }
+    
+    .key-numbers-grid-enhanced {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media (max-width: 1400px) {
@@ -3767,8 +4125,16 @@ html, body {
         grid-template-columns: repeat(2, 1fr);
     }
     
+    .status-cards-enhanced {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
     .key-numbers-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .key-numbers-grid-enhanced {
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .quick-metrics-grid {
@@ -3837,8 +4203,16 @@ html, body {
         grid-template-columns: 1fr;
     }
     
+    .status-cards-enhanced {
+        grid-template-columns: 1fr;
+    }
+    
     .key-numbers-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .key-numbers-grid-enhanced {
+        grid-template-columns: 1fr;
     }
     
     .pipeline-metrics-grid {
