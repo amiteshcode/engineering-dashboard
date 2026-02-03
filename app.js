@@ -1767,6 +1767,33 @@ viewToggleBtns.forEach(btn => {
     });
 });
 
+// Investment Page View Toggle (Team vs Tech Lead)
+const investmentViewToggle = document.querySelector('.investment-view-toggle');
+if (investmentViewToggle) {
+    const investmentToggleBtns = investmentViewToggle.querySelectorAll('.toggle-btn');
+    const teamView = document.getElementById('investment-team-view');
+    const techLeadView = document.getElementById('investment-tech-lead-view');
+    
+    investmentToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const view = btn.dataset.investmentView;
+            
+            // Update active button
+            investmentToggleBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Toggle views
+            if (view === 'tech-lead') {
+                if (techLeadView) techLeadView.classList.remove('hidden');
+                if (teamView) teamView.classList.add('hidden');
+            } else {
+                if (teamView) teamView.classList.remove('hidden');
+                if (techLeadView) techLeadView.classList.add('hidden');
+            }
+        });
+    });
+}
+
 console.log('🚀 Engineering Manager Dashboard initialized');
 console.log('📊 DORA Metrics: Deployment Frequency, Lead Time, Change Failure Rate, MTTR');
 console.log('🎯 SPACE Metrics: Satisfaction, Performance, Activity, Collaboration, Efficiency');
