@@ -2710,6 +2710,354 @@ html, body {
 }
 
 /* ==========================================
+   DORA METRICS SECTION
+   ========================================== */
+
+.dora-metrics-section {
+    margin-bottom: 16px;
+}
+
+.dora-metrics-section .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dora-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.dora-metric-card {
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    padding: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.dora-metric-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    border-color: var(--dora-color);
+}
+
+.dora-metric-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.dora-metric-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.dora-metric-icon.cfr {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #dc2626;
+}
+
+.dora-metric-icon.mttr {
+    background: linear-gradient(135deg, #cffafe, #a5f3fc);
+    color: #0891b2;
+}
+
+.dora-metric-icon.leadtime {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    color: #2563eb;
+}
+
+.dora-metric-icon.df {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #059669;
+}
+
+.dora-metric-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.dora-metric-name {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.2;
+}
+
+.dora-metric-desc {
+    display: block;
+    font-size: 9px;
+    color: var(--gray-500);
+    margin-top: 2px;
+}
+
+.dora-metric-value {
+    font-size: 18px;
+    font-weight: 800;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.dora-metric-value.good {
+    color: var(--success);
+}
+
+.dora-metric-value.warning {
+    color: var(--warning);
+}
+
+.dora-metric-value.danger {
+    color: var(--danger);
+}
+
+.dora-metric-breakdown {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.dora-breakdown-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    color: var(--gray-500);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 4px;
+}
+
+.dora-breakdown-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+}
+
+.dora-team-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.dora-team-name {
+    flex: 0 0 70px;
+    color: var(--gray-700);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dora-team-bar {
+    flex: 1;
+    height: 6px;
+    background: var(--gray-100);
+    border-radius: 3px;
+    position: relative;
+    overflow: visible;
+}
+
+.dora-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+.dora-bar-fill.good {
+    background: var(--success);
+}
+
+.dora-bar-fill.warning {
+    background: var(--warning);
+}
+
+.dora-bar-fill.danger {
+    background: var(--danger);
+}
+
+.dora-bar-threshold {
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    width: 2px;
+    background: var(--danger);
+    border-radius: 1px;
+}
+
+.dora-team-value {
+    flex: 0 0 40px;
+    text-align: right;
+    font-weight: 700;
+    font-size: 10px;
+}
+
+.dora-team-value.good {
+    color: var(--success);
+}
+
+.dora-team-value.warning {
+    color: var(--warning);
+}
+
+.dora-team-value.danger {
+    color: var(--danger);
+}
+
+/* Incident Items for MTTR */
+.dora-incident-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    background: var(--gray-50);
+    border-radius: 6px;
+}
+
+.incident-severity {
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.incident-severity.high {
+    background: var(--danger);
+    color: white;
+}
+
+.incident-severity.medium {
+    background: var(--warning);
+    color: white;
+}
+
+.incident-severity.low {
+    background: var(--info);
+    color: white;
+}
+
+.incident-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.incident-name {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gray-800);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.incident-project {
+    display: block;
+    font-size: 9px;
+    color: var(--gray-500);
+}
+
+.incident-time {
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.incident-time.good {
+    color: var(--success);
+}
+
+.incident-time.warning {
+    color: var(--warning);
+}
+
+.incident-time.danger {
+    color: var(--danger);
+}
+
+/* DORA Metric Footer */
+.dora-metric-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--gray-100);
+}
+
+.dora-benchmark {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+.dora-benchmark.elite {
+    background: var(--success-light);
+    color: #059669;
+}
+
+.dora-benchmark.high {
+    background: var(--dora-bg);
+    color: var(--dora-color);
+}
+
+.dora-benchmark.medium {
+    background: var(--warning-light);
+    color: #d97706;
+}
+
+.dora-benchmark.low {
+    background: var(--danger-light);
+    color: #dc2626;
+}
+
+.dora-trend {
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.dora-trend.positive {
+    color: var(--success);
+}
+
+.dora-trend.negative {
+    color: var(--danger);
+}
+
+/* Responsive for DORA metrics */
+@media (max-width: 1400px) {
+    .dora-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dora-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
    PIPELINE METRICS (Delivery Speed)
    ========================================== */
 

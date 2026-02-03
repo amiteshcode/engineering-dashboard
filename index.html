@@ -608,6 +608,246 @@
                         </div>
                     </section>
 
+                    <!-- DORA METRICS - Core Engineering Performance -->
+                    <section class="dora-metrics-section">
+                        <h2 class="section-title">
+                            <span class="framework-tag dora">DORA</span>
+                            Core Performance Metrics
+                        </h2>
+                        <div class="dora-metrics-grid">
+                            <!-- Change Failure Rate -->
+                            <div class="dora-metric-card" onclick="navigateToPage('alerts')">
+                                <div class="dora-metric-header">
+                                    <div class="dora-metric-icon cfr">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="15" y1="9" x2="9" y2="15"/>
+                                            <line x1="9" y1="9" x2="15" y2="15"/>
+                                        </svg>
+                                    </div>
+                                    <div class="dora-metric-info">
+                                        <span class="dora-metric-name">Change Failure Rate</span>
+                                        <span class="dora-metric-desc">% of deployments causing failures</span>
+                                    </div>
+                                    <div class="dora-metric-value warning">8.2%</div>
+                                </div>
+                                <div class="dora-metric-breakdown">
+                                    <div class="dora-breakdown-header">
+                                        <span>Team Breakdown</span>
+                                        <span>Target: &lt;15%</span>
+                                    </div>
+                                    <div class="dora-breakdown-item danger">
+                                        <span class="dora-team-indicator" style="background: #ec4899"></span>
+                                        <span class="dora-team-name">Mobile Team</span>
+                                        <div class="dora-team-bar">
+                                            <div class="dora-bar-fill danger" style="width: 91%"></div>
+                                            <div class="dora-bar-threshold" style="left: 75%"></div>
+                                        </div>
+                                        <span class="dora-team-value danger">18.2%</span>
+                                    </div>
+                                    <div class="dora-breakdown-item warning">
+                                        <span class="dora-team-indicator" style="background: #f59e0b"></span>
+                                        <span class="dora-team-name">Backend Team</span>
+                                        <div class="dora-team-bar">
+                                            <div class="dora-bar-fill warning" style="width: 53%"></div>
+                                            <div class="dora-bar-threshold" style="left: 75%"></div>
+                                        </div>
+                                        <span class="dora-team-value warning">10.6%</span>
+                                    </div>
+                                    <div class="dora-breakdown-item good">
+                                        <span class="dora-team-indicator" style="background: #10b981"></span>
+                                        <span class="dora-team-name">Frontend Team</span>
+                                        <div class="dora-team-bar">
+                                            <div class="dora-bar-fill good" style="width: 27%"></div>
+                                            <div class="dora-bar-threshold" style="left: 75%"></div>
+                                        </div>
+                                        <span class="dora-team-value good">5.4%</span>
+                                    </div>
+                                    <div class="dora-breakdown-item good">
+                                        <span class="dora-team-indicator" style="background: #6366f1"></span>
+                                        <span class="dora-team-name">Platform Team</span>
+                                        <div class="dora-team-bar">
+                                            <div class="dora-bar-fill good" style="width: 11%"></div>
+                                            <div class="dora-bar-threshold" style="left: 75%"></div>
+                                        </div>
+                                        <span class="dora-team-value good">2.1%</span>
+                                    </div>
+                                </div>
+                                <div class="dora-metric-footer">
+                                    <span class="dora-benchmark medium">High Performer</span>
+                                    <span class="dora-trend negative">↑ 1.4% from last week</span>
+                                </div>
+                            </div>
+
+                            <!-- Mean Time to Recovery -->
+                            <div class="dora-metric-card" onclick="navigateToPage('alerts')">
+                                <div class="dora-metric-header">
+                                    <div class="dora-metric-icon mttr">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <polyline points="12 6 12 12 16 14"/>
+                                        </svg>
+                                    </div>
+                                    <div class="dora-metric-info">
+                                        <span class="dora-metric-name">Mean Time to Recovery</span>
+                                        <span class="dora-metric-desc">Avg time to restore service</span>
+                                    </div>
+                                    <div class="dora-metric-value good">38 min</div>
+                                </div>
+                                <div class="dora-metric-breakdown">
+                                    <div class="dora-breakdown-header">
+                                        <span>Recent Incidents</span>
+                                        <span>Target: &lt;1 hr</span>
+                                    </div>
+                                    <div class="dora-incident-item">
+                                        <div class="incident-severity high">P1</div>
+                                        <div class="incident-details">
+                                            <span class="incident-name">API Gateway Timeout</span>
+                                            <span class="incident-project">Backend • Auth Service</span>
+                                        </div>
+                                        <div class="incident-time good">42 min</div>
+                                    </div>
+                                    <div class="dora-incident-item">
+                                        <div class="incident-severity medium">P2</div>
+                                        <div class="incident-details">
+                                            <span class="incident-name">CDN Cache Miss</span>
+                                            <span class="incident-project">Platform • Static Assets</span>
+                                        </div>
+                                        <div class="incident-time good">28 min</div>
+                                    </div>
+                                    <div class="dora-incident-item">
+                                        <div class="incident-severity low">P3</div>
+                                        <div class="incident-details">
+                                            <span class="incident-name">Dashboard Slow Load</span>
+                                            <span class="incident-project">Frontend • Analytics</span>
+                                        </div>
+                                        <div class="incident-time good">18 min</div>
+                                    </div>
+                                </div>
+                                <div class="dora-metric-footer">
+                                    <span class="dora-benchmark elite">Elite Performer</span>
+                                    <span class="dora-trend positive">↓ 12 min improvement</span>
+                                </div>
+                            </div>
+
+                            <!-- Lead Time for Changes -->
+                            <div class="dora-metric-card" onclick="navigateToPage('process-flow')">
+                                <div class="dora-metric-header">
+                                    <div class="dora-metric-icon leadtime">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                                        </svg>
+                                    </div>
+                                    <div class="dora-metric-info">
+                                        <span class="dora-metric-name">Lead Time for Changes</span>
+                                        <span class="dora-metric-desc">Commit to production time</span>
+                                    </div>
+                                    <div class="dora-metric-value good">2.4 hrs</div>
+                                </div>
+                                <div class="dora-metric-breakdown">
+                                    <div class="dora-breakdown-header">
+                                        <span>By Project</span>
+                                        <span>Target: &lt;1 day</span>
+                                    </div>
+                                    <div class="dora-breakdown-item good">
+                                        <span class="dora-team-indicator" style="background: #6366f1"></span>
+                                        <span class="dora-team-name">Auth Service</span>
+                                        <div class="dora-team-bar">
+                                            <div class="dora-bar-fill good" style="width: 25%"></div>
+                                        </div>
+                                        <span class="dora-team-value good">1.2 hrs</span>
+                                    </div>
+                                    <div class="dora-breakdown-item good">
+                                        <span class="dora-team-indicator" style="background: #10b981"></span>
+                                        <span class="dora-team-name">Dashboard UI</span>
+                                        <div class="dora-team-bar">
+                                            <div class="dora-bar-fill good" style="width: 38%"></div>
+                                        </div>
+                                        <span class="dora-team-value good">1.8 hrs</span>
+                                    </div>
+                                    <div class="dora-breakdown-item good">
+                                        <span class="dora-team-indicator" style="background: #f59e0b"></span>
+                                        <span class="dora-team-name">API Gateway</span>
+                                        <div class="dora-team-bar">
+                                            <div class="dora-bar-fill good" style="width: 54%"></div>
+                                        </div>
+                                        <span class="dora-team-value good">2.6 hrs</span>
+                                    </div>
+                                    <div class="dora-breakdown-item warning">
+                                        <span class="dora-team-indicator" style="background: #ec4899"></span>
+                                        <span class="dora-team-name">Mobile App</span>
+                                        <div class="dora-team-bar">
+                                            <div class="dora-bar-fill warning" style="width: 100%"></div>
+                                        </div>
+                                        <span class="dora-team-value warning">4.8 hrs</span>
+                                    </div>
+                                </div>
+                                <div class="dora-metric-footer">
+                                    <span class="dora-benchmark elite">Elite Performer</span>
+                                    <span class="dora-trend positive">↓ 18% faster</span>
+                                </div>
+                            </div>
+
+                            <!-- Deployment Frequency -->
+                            <div class="dora-metric-card" onclick="navigateToPage('investment')">
+                                <div class="dora-metric-header">
+                                    <div class="dora-metric-icon df">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="dora-metric-info">
+                                        <span class="dora-metric-name">Deployment Frequency</span>
+                                        <span class="dora-metric-desc">How often we ship to production</span>
+                                    </div>
+                                    <div class="dora-metric-value good">4/day</div>
+                                </div>
+                                <div class="dora-metric-breakdown">
+                                    <div class="dora-breakdown-header">
+                                        <span>This Week by Team</span>
+                                        <span>Target: Daily</span>
+                                    </div>
+                                    <div class="dora-breakdown-item good">
+                                        <span class="dora-team-indicator" style="background: #6366f1"></span>
+                                        <span class="dora-team-name">Platform Team</span>
+                                        <div class="dora-team-bar">
+                                            <div class="dora-bar-fill good" style="width: 100%"></div>
+                                        </div>
+                                        <span class="dora-team-value good">12</span>
+                                    </div>
+                                    <div class="dora-breakdown-item good">
+                                        <span class="dora-team-indicator" style="background: #10b981"></span>
+                                        <span class="dora-team-name">Frontend Team</span>
+                                        <div class="dora-team-bar">
+                                            <div class="dora-bar-fill good" style="width: 75%"></div>
+                                        </div>
+                                        <span class="dora-team-value good">9</span>
+                                    </div>
+                                    <div class="dora-breakdown-item good">
+                                        <span class="dora-team-indicator" style="background: #f59e0b"></span>
+                                        <span class="dora-team-name">Backend Team</span>
+                                        <div class="dora-team-bar">
+                                            <div class="dora-bar-fill good" style="width: 42%"></div>
+                                        </div>
+                                        <span class="dora-team-value good">5</span>
+                                    </div>
+                                    <div class="dora-breakdown-item warning">
+                                        <span class="dora-team-indicator" style="background: #ec4899"></span>
+                                        <span class="dora-team-name">Mobile Team</span>
+                                        <div class="dora-team-bar">
+                                            <div class="dora-bar-fill warning" style="width: 17%"></div>
+                                        </div>
+                                        <span class="dora-team-value warning">2</span>
+                                    </div>
+                                </div>
+                                <div class="dora-metric-footer">
+                                    <span class="dora-benchmark elite">Elite Performer</span>
+                                    <span class="dora-trend positive">↑ 12% vs last week</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     <!-- Action Required & Shoutouts Row -->
                     <section class="cockpit-actions-row">
                         <!-- Needs Attention -->
