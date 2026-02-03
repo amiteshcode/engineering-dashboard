@@ -1364,6 +1364,437 @@ html, body {
     grid-template-columns: repeat(2, 1fr);
 }
 
+/* =====================================================
+   TECH LEAD ACTIVITY SECTION
+   ===================================================== */
+
+.tech-lead-section {
+    margin-bottom: var(--space-6);
+}
+
+.section-header-enhanced {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-5);
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+.section-header-enhanced .section-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-1);
+}
+
+.section-icon {
+    font-size: 1.5rem;
+}
+
+.section-subtitle {
+    font-size: var(--text-sm);
+    color: var(--gray-500);
+    margin: 0;
+}
+
+.filter-pills {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.pill-btn {
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--gray-200);
+    background: var(--white);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--gray-600);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.pill-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.pill-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+}
+
+/* Tech Lead Metrics Grid */
+.tech-lead-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    margin-bottom: var(--space-6);
+}
+
+/* Tech Lead Cards */
+.tech-lead-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--gray-100);
+    overflow: hidden;
+    transition: var(--transition-fast);
+}
+
+.tech-lead-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.tech-lead-card.documentation {
+    border-top: 4px solid #6366f1;
+}
+
+.tech-lead-card.poc {
+    border-top: 4px solid #10b981;
+}
+
+.tech-lead-card.backlog {
+    border-top: 4px solid #f59e0b;
+}
+
+/* Card Header */
+.tl-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4) var(--space-4) 0;
+}
+
+.tl-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.documentation .tl-icon-wrap {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+}
+
+.poc .tl-icon-wrap {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.15));
+}
+
+.backlog .tl-icon-wrap {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.15));
+}
+
+/* Card Content */
+.tl-card-content {
+    padding: var(--space-4);
+}
+
+.tl-card-content h3 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--gray-900);
+    margin: 0 0 var(--space-2);
+}
+
+.tl-main-metric {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+}
+
+.tl-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+}
+
+.tl-unit {
+    font-size: var(--text-sm);
+    color: var(--gray-500);
+}
+
+.tl-trend {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    display: inline-flex;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-full);
+}
+
+.tl-trend.positive {
+    color: var(--success);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.tl-trend.negative {
+    color: var(--danger);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.tl-trend.neutral {
+    color: var(--gray-600);
+    background: var(--gray-100);
+}
+
+/* Breakdown Section */
+.tl-breakdown {
+    padding: var(--space-4);
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-100);
+}
+
+.tl-breakdown-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2) 0;
+}
+
+.tl-breakdown-item:not(:last-child) {
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.tl-breakdown-icon {
+    font-size: 1rem;
+    width: 24px;
+    text-align: center;
+}
+
+.tl-breakdown-info {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tl-breakdown-label {
+    font-size: var(--text-xs);
+    color: var(--gray-600);
+}
+
+.tl-breakdown-value {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+/* Team Breakdown */
+.tl-team-breakdown,
+.tl-active-pocs,
+.tl-backlog-health {
+    padding: var(--space-4);
+    border-top: 1px solid var(--gray-100);
+}
+
+.tl-team-breakdown h4,
+.tl-active-pocs h4,
+.tl-backlog-health h4 {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 var(--space-3);
+}
+
+.tl-team-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.tl-team-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.tl-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-full);
+}
+
+.tl-name {
+    flex: 1;
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+.tl-hours {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--gray-900);
+    width: 50px;
+    text-align: right;
+}
+
+.tl-mini-bar {
+    width: 60px;
+    height: 4px;
+    background: var(--gray-200);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.tl-mini-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), #8b5cf6);
+    border-radius: var(--radius-full);
+}
+
+/* POC List */
+.poc-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.poc-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2);
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+}
+
+.poc-status {
+    font-size: 0.5rem;
+}
+
+.poc-status.in-progress {
+    color: #6366f1;
+}
+
+.poc-status.planning {
+    color: #f59e0b;
+}
+
+.poc-status.completed {
+    color: #10b981;
+}
+
+.poc-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.poc-name {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.poc-lead {
+    font-size: 10px;
+    color: var(--gray-500);
+}
+
+.poc-progress {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Backlog Health Metrics */
+.backlog-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+}
+
+.backlog-metric {
+    text-align: center;
+    padding: var(--space-3);
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+}
+
+.backlog-metric-value {
+    display: block;
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.backlog-metric-value.good {
+    color: var(--success);
+}
+
+.backlog-metric-value.warning {
+    color: #f59e0b;
+}
+
+.backlog-metric-label {
+    font-size: 10px;
+    color: var(--gray-500);
+}
+
+/* Tech Lead Summary Table */
+.tech-lead-summary {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--gray-100);
+    padding: var(--space-5);
+    overflow: hidden;
+}
+
+.tech-lead-summary h4 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--gray-900);
+    margin: 0 0 var(--space-4);
+}
+
+.member-cell {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.member-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+}
+
+/* Responsive for Tech Lead Section */
+@media (max-width: 1200px) {
+    .tech-lead-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-lead-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header-enhanced {
+        flex-direction: column;
+    }
+    
+    .filter-pills {
+        flex-wrap: wrap;
+    }
+    
+    .backlog-metrics {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Metric Cards - Unified Style */
 .metric-card {
     background: var(--white);
